@@ -27,7 +27,7 @@
     "stackSubTitle": "Tech stack",
     "stackTitle": "Технологии, которые реально встречаются в моих проектах.",
     "stackDescription": "Основной фокус — PHP 8+, Yii2, Laravel, REST API, MySQL, Redis и поддержка frontend-части на Vue/Nuxt.\n Проценты считаются по частоте использования навыков в проектах, а отдельные интеграции вынесены в список без влияния на шкалу.",
-    "visualSkillMap": "Частота навыков в проектах",
+    "visualSkillMap": "Используемые навыки в проектах",
     "groups": {
       "backend": "Backend",
       "frontend": "Frontend",

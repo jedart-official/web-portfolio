@@ -27,7 +27,7 @@
     "stackSubTitle": "Tech stack",
     "stackTitle": "Technologies that actually appear across my projects.",
     "stackDescription": "My core focus is PHP 8+, Yii2, Laravel, REST API, MySQL, Redis, and Vue/Nuxt frontend support.\n Percentages are based on how often a skill appears in projects, while standalone integrations are listed separately without affecting the scale.",
-    "visualSkillMap": "Skill frequency across projects",
+    "visualSkillMap": "Skills used across projects",
     "groups": {
       "backend": "Backend",
       "frontend": "Frontend",

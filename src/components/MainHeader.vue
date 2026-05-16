@@ -20,11 +20,15 @@
       <button
           type="button"
           @click="setScreen('home')"
-          class="flex min-w-0 items-center gap-3 rounded-xl text-left transition hover:text-cinnabarMain focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+          class="flex min-w-0 items-center gap-3 rounded-xl text-left transition hover:text-cinnabarMain focus:outline-none"
           aria-label="Перейти на главную"
       >
-        <div class="h-9 w-9 shrink-0 rounded-full bg-cinnabarMain flex items-center justify-center overflow-hidden sm:h-10 sm:w-10">
-          <img src="/profile.webp" alt="Profile" class="w-full h-full object-cover"/>
+        <div class="h-9 w-9 shrink-0 rounded-full bg-[conic-gradient(from_160deg,#ED5E1F,#5CDB95,#379683,#EDF5E1,#ED5E1F)] p-[2px] shadow-[0_0_18px_rgba(92,219,149,0.28)] sm:h-10 sm:w-10">
+          <div class="h-full w-full rounded-full bg-[#15191f] p-[2px]">
+            <div class="h-full w-full overflow-hidden rounded-full bg-night">
+            <img src="/profile.webp" alt="Profile" class="w-full h-full object-cover"/>
+            </div>
+          </div>
         </div>
         <div class="flex min-w-0 flex-col">
           <span class="truncate text-[11px] uppercase tracking-[0.22em] text-gray-400 sm:text-xs sm:tracking-[0.24em]">web developer</span>
@@ -59,7 +63,7 @@
             v-for="item in content.navbar"
             :key="item.id"
             @click="setScreen(item.id)"
-            class="nav-btn shrink-0 whitespace-nowrap transition-colors"
+            class="nav-btn uppercase shrink-0 whitespace-nowrap transition-colors"
             :class="isActive(item.id) ? 'text-gray-200' : 'text-gray-400 hover:text-palette2'"
         >
           {{ t(item.label)  }}

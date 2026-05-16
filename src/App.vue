@@ -44,7 +44,7 @@ onMounted(() => {
             min-h-[620px] lg:h-[640px]">
     <MainHeader></MainHeader>
 
-    <div @scroll.passive="onScroll" ref="scroller" class="relative flex-1 overflow-y-auto no-scrollbar">
+    <div @scroll.passive="onScroll" ref="scroller" class="app-scrollbar relative flex-1 overflow-y-auto">
       <div class="relative min-h-full">
         <div
             class="pointer-events-none hidden lg:block absolute inset-0 opacity-40 z-0"
@@ -105,4 +105,3 @@ onMounted(() => {
     <MainFooter></MainFooter>
   </div>
 </template>
-

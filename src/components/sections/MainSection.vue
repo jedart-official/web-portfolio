@@ -163,7 +163,7 @@ const projectSkills = computed(() => {
           </div>
 
           <div class="relative">
-            <div class="max-h-32 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin">
+            <div class="max-h-56 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-32">
               <div v-for="skill in projectSkills" :key="skill.id" class="flex items-center gap-3">
                 <span class="flex w-24 items-center gap-2 text-gray-400">
                   <span
@@ -200,7 +200,7 @@ const projectSkills = computed(() => {
         {{ t('main.whatIDo') }}
       </p>
       <div class="relative rounded-xl border border-[#252a33] bg-[#11151b] p-3">
-        <div class="max-h-48 space-y-2 overflow-y-auto pr-2 scrollbar-thin">
+        <div class="max-h-80 space-y-2 overflow-y-auto pr-2 scrollbar-thin sm:max-h-48">
           <article
               v-for="card in content.homeCards"
               :key="card.title"
