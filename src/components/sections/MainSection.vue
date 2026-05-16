@@ -200,7 +200,7 @@ const projectSkills = computed(() => {
         {{ t('main.whatIDo') }}
       </p>
       <div class="relative rounded-xl border border-[#252a33] bg-[#11151b] p-3">
-        <div class="max-h-80 space-y-2 overflow-y-auto pr-2 scrollbar-thin sm:max-h-48">
+        <div class="max-h-85 space-y-2 overflow-y-auto pr-2 scrollbar-thin sm:max-h-48">
           <article
               v-for="card in content.homeCards"
               :key="card.title"
