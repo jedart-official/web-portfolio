@@ -4,9 +4,15 @@ import {useI18n} from "vue-i18n";
 
 export const useMainStore = defineStore('main', () => {
     const availableScreens = ['home', 'stack', 'projects'];
+    const availableLocales = ['ru', 'en'];
     const savedScreen = localStorage.getItem('activeScreen');
     const activeScreen = ref(availableScreens.includes(savedScreen) ? savedScreen : 'home');
     const {locale} = useI18n();
+    const savedLocale = localStorage.getItem('lang');
+
+    if (availableLocales.includes(savedLocale)) {
+        locale.value = savedLocale;
+    }
     const showDown = ref(false);
     const scroller = ref(null);
     const setScreen = (id) => {
@@ -24,6 +30,8 @@ export const useMainStore = defineStore('main', () => {
 
 
     const setLang = (lang) => {
+        if (!availableLocales.includes(lang)) return;
+
         locale.value = lang;
         localStorage.setItem("lang", lang);
     };
