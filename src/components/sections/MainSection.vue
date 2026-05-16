@@ -163,7 +163,7 @@ const projectSkills = computed(() => {
           </div>
 
           <div class="relative">
-            <div class="max-h-56 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-32">
+            <div class="max-h-120 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-64">
               <div v-for="skill in projectSkills" :key="skill.id" class="flex items-center gap-3">
                 <span class="flex w-24 items-center gap-2 text-gray-400">
                   <span
