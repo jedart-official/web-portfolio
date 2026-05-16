@@ -1,0 +1,44 @@
+{
+  "base": {
+    "header": {
+      "name": "Web developer",
+      "menu": {
+        "main": "Home",
+        "stack": "Stack",
+        "projects": "Projects"
+      }
+    },
+    "footer": {
+      "contacts": "Contacts"
+    }
+  },
+  "main": {
+    "aboutSubTitle": "Inside discovery",
+    "aboutTitle": "Создаю web-интерфейсы, которые хочется изучать.",
+    "aboutDescription": "Проектирую и разрабатываю SPA-приложения, личные кабинеты и порталы.\n Упор на чистую архитектуру, понятную навигацию и визуальный стиль,\n который подчеркивает функциональность.",
+    "downloadCV": "Скачать резюме PDF",
+    "viewProjects": "Смотреть проекты",
+    "checkStack": "Изучить стек",
+    "stackExperience": "Опыт в стеке",
+    "overview": "Overview",
+    "whatIDo": "Чем занимаюсь"
+  },
+  "stack": {
+    "stackSubTitle": "Tech stack",
+    "stackTitle": "Стек, с которым работаю каждый день.",
+    "stackDescription": "Собираю SPA-приложения, где frontend и backend «разговаривают» на одном языке.\n Могу выстроить архитектуру, настроить окружение и довести продукт до продакшена.",
+    "visualSkillMap": "Visual skill map"
+  },
+  "projects": {
+    "casesSubTitle": "case studies",
+    "casesTitle": "Подборка проектов, где стек раскрывается полностью.",
+    "casesDescription": "Ниже — несколько кейсов с кратким описанием роли, технологий и результата.",
+    "openDetails": "Details",
+    "closeDetails": "Close project details",
+    "description": "Description",
+    "implementation": "Implementation",
+    "result": "Result",
+    "stack": "Stack",
+    "tags": "Tags"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "navbar": [
+    {
+      "id": "home",
+      "label": "base.header.menu.main"
+    },
+    {
+      "id": "stack",
+      "label": "base.header.menu.stack"
+    },
+    {
+      "id": "projects",
+      "label": "base.header.menu.projects"
+    }
+  ],
+  "contacts": {
+    "email": "jedart.official@gmail.com",
+    "telegram": "jedart_official",
+    "github": "jedart-official"
+  },
+  "projects": [
+    {
+      "id": "dashboard",
+      "tag": "01 · dashboard",
+      "badge": "SPA",
+      "title": "Дашборд мониторинга показателей",
+      "description": "Одностраничное приложение для аналитики, фильтров и работы с графиками в реальном времени.",
+      "stack": "Vue 3 · Nuxt · Tailwind · REST API · WebSockets",
+      "theme": "dashboard",
+      "background": {
+        "image": "radial-gradient(circle at 18% 24%, rgba(92, 219, 149, 0.26), transparent 28%), radial-gradient(circle at 84% 12%, rgba(237, 94, 31, 0.2), transparent 26%), linear-gradient(135deg, rgba(17, 21, 27, 0.96), rgba(27, 35, 46, 0.96))"
+      },
+      "details": {
+        "summary": "A case for a team that needs one screen for metrics, filters, and live updates without reloading the page.",
+        "implementation": [
+          "Built the SPA structure with separated widgets, filters, and API access layer.",
+          "Added live updates through WebSockets with REST requests as a fallback.",
+          "Handled responsive chart states, empty results, and loading errors."
+        ],
+        "result": "The interface became easier to scan: key metrics, filters, and statuses stay in one working context.",
+        "tags": [
+          "analytics",
+          "realtime",
+          "charts",
+          "filters",
+          "responsive"
+        ]
+      }
+    },
+    {
+      "id": "crm",
+      "tag": "02 · crm",
+      "badge": "b2b",
+      "title": "Модуль CRM для отдела продаж",
+      "description": "Разработка backend-части и SPA-интерфейса для управления лидами, задачами и оплатами.",
+      "stack": "Laravel · Vue · Role-based access · Audit-лог",
+      "theme": "crm",
+      "background": {
+        "image": "radial-gradient(circle at 82% 18%, rgba(237, 94, 31, 0.28), transparent 30%), radial-gradient(circle at 16% 86%, rgba(144, 113, 99, 0.26), transparent 30%), linear-gradient(135deg, rgba(22, 17, 22, 0.96), rgba(40, 27, 31, 0.96))"
+      },
+      "details": {
+        "summary": "An internal CRM module for processing leads, assigning tasks, and tracking payments in a sales team.",
+        "implementation": [
+          "Designed roles, access rules, and data visibility scenarios for different employees.",
+          "Implemented the Laravel backend API and connected it to the Vue SPA interface.",
+          "Added an audit log for important actions: status changes, payments, comments, and tasks."
+        ],
+        "result": "The team received a clearer client history and reduced manual work when handing off leads.",
+        "tags": [
+          "crm",
+          "rbac",
+          "audit log",
+          "sales",
+          "backend api"
+        ]
+      }
+    },
+    {
+      "id": "portfolio",
+      "tag": "03 · portfolio",
+      "badge": "personal",
+      "title": "Личный сайт-портфолио",
+      "description": "SPA-структура с плавной навигацией, анимациями и цветовой палитрой на киновари и русском зелёном.",
+      "stack": "Nuxt · Tailwind · анимации · адаптив",
+      "theme": "portfolio",
+      "background": {
+        "image": "radial-gradient(circle at 24% 20%, rgba(55, 150, 131, 0.34), transparent 30%), radial-gradient(circle at 78% 72%, rgba(92, 219, 149, 0.18), transparent 28%), linear-gradient(135deg, rgba(15, 23, 21, 0.96), rgba(19, 53, 49, 0.96))"
+      },
+      "details": {
+        "summary": "A personal website where navigation, stack, and projects are collected in a compact SPA without extra screens.",
+        "implementation": [
+          "Built section switching through Pinia and localized JSON content.",
+          "Created responsive Tailwind sections with deliberate hover and focus states.",
+          "Separated text content from components so cases can be extended without rewriting templates."
+        ],
+        "result": "The portfolio is easier to maintain: new projects, tags, descriptions, and backgrounds are added through data.",
+        "tags": [
+          "portfolio",
+          "content driven",
+          "tailwind",
+          "pinia",
+          "i18n"
+        ]
+      }
+    }
+  ],
+  "homeCards": [
+    {
+      "tag": "web apps",
+      "title": "SPA-панели и личные кабинеты",
+      "subtitle": "Vue / Nuxt · REST API",
+      "target": "projects"
+    },
+    {
+      "tag": "b2b",
+      "title": "CRM-модули и внутренние сервисы",
+      "subtitle": "Laravel · MySQL",
+      "target": "projects"
+    },
+    {
+      "tag": "ui",
+      "title": "Дизайн-системы в коде",
+      "subtitle": "Tailwind · компоненты",
+      "target": "stack"
+    }
+  ],
+  "skillsBar": [
+    {
+      "label": "Frontend",
+      "width": "88%",
+      "note": "3+ г."
+    },
+    {
+      "label": "Backend",
+      "width": "82%",
+      "note": "3+ г."
+    },
+    {
+      "label": "Дизайн",
+      "width": "68%",
+      "note": "2+ г."
+    },
+    {
+      "label": "DevOps",
+      "width": "55%",
+      "note": "mid"
+    }
+  ],
+  "skillsTags": [
+    {
+      "title": "frontend",
+      "tags": [
+        "Vue 3",
+        "Nuxt 3",
+        "TypeScript",
+        "Tailwind",
+        "SPA / SSR"
+      ]
+    },
+    {
+      "title": "backend",
+      "tags": [
+        "PHP 8+",
+        "Laravel",
+        "Yii2",
+        "REST / JSON API",
+        "Auth / RBAC"
+      ]
+    },
+    {
+      "title": "инструменты",
+      "tags": [
+        "Git / GitLab",
+        "Docker",
+        "Postman",
+        "Figma"
+      ]
+    }
+  ],
+  "visualSkills": [
+    {
+      "id": "pinia",
+      "title": "State-менеджмент (Pinia)",
+      "level": "strong",
+      "badge": {
+        "label": "strong",
+        "bg": "bg-palette3",
+        "text": "text-night"
+      }
+    },
+    {
+      "id": "typed-api",
+      "title": "Typed API (TS)",
+      "level": "strong",
+      "badge": {
+        "label": "strong",
+        "bg": "bg-palette3",
+        "text": "text-night"
+      }
+    },
+    {
+      "id": "design-system",
+      "title": "Design-system",
+      "level": "solid",
+      "badge": {
+        "label": "solid",
+        "bg": "bg-palette5",
+        "text": "text-default"
+      }
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessibility",
+      "level": "progress",
+      "badge": {
+        "label": "в процессе",
+        "bg": "bg-palette2",
+        "text": "text-night"
+      }
+    },
+    {
+      "id": "ci-cd",
+      "title": "CI / CD · Docker",
+      "level": "mid",
+      "badge": {
+        "label": "mid",
+        "bg": "bg-palette4",
+        "text": "text-palette2"
+      }
+    },
+    {
+      "id": "monitoring",
+      "title": "Monitoring",
+      "level": "mid",
+      "badge": {
+        "label": "mid",
+        "bg": "bg-palette4",
+        "text": "text-palette2"
+      }
+    }
+  ]
+}
