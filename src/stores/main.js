@@ -3,12 +3,17 @@ import {nextTick, ref} from "vue";
 import {useI18n} from "vue-i18n";
 
 export const useMainStore = defineStore('main', () => {
-    const activeScreen = ref('home');
+    const availableScreens = ['home', 'stack', 'projects'];
+    const savedScreen = localStorage.getItem('activeScreen');
+    const activeScreen = ref(availableScreens.includes(savedScreen) ? savedScreen : 'home');
     const {locale} = useI18n();
     const showDown = ref(false);
     const scroller = ref(null);
     const setScreen = (id) => {
+        if (!availableScreens.includes(id)) return;
+
         activeScreen.value = id;
+        localStorage.setItem('activeScreen', id);
         setTimeout(() => {
             checkShowDown();
         }, 400)
