@@ -1,5 +1,5 @@
 <script setup>
-  import {computed, onBeforeUnmount, ref, watch} from "vue";
+  import {computed, nextTick, onBeforeUnmount, ref, watch} from "vue";
   import {useMainStore} from "@/stores/main.js";
   import {useContent} from "@/composables/useContent.js";
   import {useI18n} from "vue-i18n";
@@ -8,6 +8,7 @@
   const {isActive} = useMainStore();
   const {content} = useContent();
   const selectedProjectId = ref(null);
+  const modalPanel = ref(null);
 
   const themeMap = {
     dashboard: {
@@ -46,6 +47,12 @@
     selectedProjectId.value = null;
   };
 
+  const handleWindowKeydown = (event) => {
+    if (event.key === "Escape") {
+      closeProject();
+    }
+  };
+
   const projectBackgroundStyle = (project) => {
     const background = project.background;
 
@@ -70,17 +77,46 @@
     };
   };
 
+  const projectLogoStyle = (project, placement) => {
+    const settings = project.logo?.[placement];
+
+    if (!settings) {
+      return {};
+    }
+
+    return {
+      height: settings.height,
+      right: settings.right,
+      bottom: settings.bottom,
+      top: settings.top,
+      opacity: settings.opacity,
+    };
+  };
+
   watch(selectedProjectId, (projectId) => {
     if (typeof document === "undefined") {
       return;
     }
 
     document.body.style.overflow = projectId ? "hidden" : "";
+
+    if (typeof window !== "undefined") {
+      window.removeEventListener("keydown", handleWindowKeydown);
+
+      if (projectId) {
+        window.addEventListener("keydown", handleWindowKeydown);
+        nextTick(() => modalPanel.value?.focus());
+      }
+    }
   });
 
   onBeforeUnmount(() => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "";
+    }
+
+    if (typeof window !== "undefined") {
+      window.removeEventListener("keydown", handleWindowKeydown);
     }
   });
 </script>
@@ -105,19 +141,31 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
-      <button
+      <article
           v-for="project in content.projects"
           :key="project.id"
-          type="button"
-          class="group relative overflow-hidden rounded-3xl p-4 flex flex-col border min-h-[180px] text-left shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-cinnabarMain/70 focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+          role="button"
+          tabindex="0"
+          :aria-label="`${t('projects.openDetails')}: ${project.title}`"
+          class="group relative overflow-hidden rounded-3xl p-4 flex flex-col border min-h-[180px] cursor-pointer text-left shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-cinnabarMain/70 focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
           :class="projectTheme(project).bg"
           @click="openProject(project)"
+          @keydown.enter.prevent="openProject(project)"
+          @keydown.space.prevent="openProject(project)"
       >
         <div
             v-if="project.background"
             class="pointer-events-none absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-90"
             :style="projectBackgroundStyle(project)"
         ></div>
+        <img
+            v-if="project.logo?.src"
+            :src="project.logo.src"
+            alt=""
+            aria-hidden="true"
+            class="pointer-events-none absolute right-3 bottom-2 h-36 w-auto opacity-30 mix-blend-screen drop-shadow-2xl transition duration-300 group-hover:scale-105 group-hover:opacity-40"
+            :style="projectLogoStyle(project, 'card')"
+        >
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-night/10 via-night/25 to-night/75"></div>
 
         <div class="relative z-10 flex h-full flex-col">
@@ -150,12 +198,12 @@
               :class="projectTheme(project).footer"
           >
             <span>{{ project.stack }}</span>
-            <span class="shrink-0 text-cinnabarMain opacity-0 transition group-hover:opacity-100">
+            <span class="shrink-0 text-cinnabarMain opacity-0 transition group-hover:opacity-100 group-focus:opacity-100">
               {{ t('projects.openDetails') }}
             </span>
           </div>
         </div>
-      </button>
+      </article>
 
     </div>
 
@@ -172,9 +220,9 @@
             v-if="selectedProject"
             class="fixed inset-0 z-100 flex items-center justify-center bg-night/80 px-4 py-6 backdrop-blur-md"
             @click.self="closeProject"
-            @keydown.esc="closeProject"
         >
           <section
+              ref="modalPanel"
               class="relative max-h-[88vh] w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[#0c0f14] shadow-2xl"
               role="dialog"
               aria-modal="true"
@@ -186,11 +234,26 @@
                 class="pointer-events-none absolute inset-x-0 top-0 h-52 opacity-70"
                 :style="projectBackgroundStyle(selectedProject)"
             ></div>
+            <img
+                v-if="selectedProject.logo?.src"
+                :src="selectedProject.logo.src"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute right-4 top-8 h-72 w-auto opacity-16 mix-blend-screen drop-shadow-2xl sm:right-16 sm:h-80"
+                :style="projectLogoStyle(selectedProject, 'modalBackground')"
+            >
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-night/20 via-[#0c0f14]/85 to-[#0c0f14]"></div>
 
             <div class="relative z-10 max-h-[88vh] overflow-y-auto no-scrollbar p-5 sm:p-6 lg:p-7">
               <div class="mb-6 flex items-start justify-between gap-4">
-                <div>
+                <div class="flex items-start gap-4">
+                  <img
+                      v-if="selectedProject.logo?.src"
+                      :src="selectedProject.logo.src"
+                      :alt="selectedProject.logo.alt ?? selectedProject.title"
+                      class="mt-1 h-14 w-14 shrink-0 rounded-2xl border border-white/10 bg-white/[0.04] object-contain p-2 shadow-lg shadow-black/20 sm:h-16 sm:w-16"
+                  >
+                  <div>
                   <p
                       class="mb-3 text-[10px] sm:text-[11px] uppercase tracking-[0.26em]"
                       :class="projectTheme(selectedProject).tag"
@@ -203,6 +266,7 @@
                   >
                     {{ selectedProject.title }}
                   </h3>
+                  </div>
                 </div>
 
                 <button

@@ -62,86 +62,249 @@
   ],
   "projects": [
     {
-      "id": "dashboard",
-      "tag": "01 · dashboard",
-      "badge": "SPA",
-      "title": "Дашборд мониторинга показателей",
-      "description": "Одностраничное приложение для аналитики, фильтров и работы с графиками в реальном времени.",
-      "stack": "Vue 3 · Nuxt · Tailwind · REST API · WebSockets",
+      "id": "fckairat",
+      "tag": "01 · fckairat",
+      "badge": "sport",
+      "title": "FCKAIRAT",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
       "theme": "dashboard",
       "background": {
-        "image": "radial-gradient(circle at 18% 24%, rgba(92, 219, 149, 0.26), transparent 28%), radial-gradient(circle at 84% 12%, rgba(237, 94, 31, 0.2), transparent 26%), linear-gradient(135deg, rgba(17, 21, 27, 0.96), rgba(27, 35, 46, 0.96))"
+        "image": "radial-gradient(circle at 18% 24%, rgba(255, 206, 52, 0.36), transparent 30%), radial-gradient(circle at 84% 12%, rgba(20, 115, 68, 0.28), transparent 28%), linear-gradient(135deg, rgba(13, 16, 17, 0.96), rgba(27, 30, 20, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/Logo-Kairat-site.webp",
+        "alt": "Логотип FCKAIRAT"
       },
       "details": {
-        "summary": "Кейс для команды, которой нужен единый экран с метриками, фильтрами и живыми обновлениями без перезагрузки страницы.",
-        "implementation": [
-          "Собрал SPA-структуру с разделением виджетов, фильтров и слоя работы с API.",
-          "Добавил обновление данных через WebSockets и fallback на REST-запросы.",
-          "Настроил адаптивные состояния графиков, пустых выборок и ошибок загрузки."
-        ],
-        "result": "Интерфейс стал быстрее читать: ключевые показатели, фильтры и статусы находятся в одном рабочем контексте.",
+        "summary": "Информация по реализации проекта FCKAIRAT будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
         "tags": [
-          "analytics",
-          "realtime",
-          "charts",
-          "filters",
-          "responsive"
+          "FCKAIRAT",
+          "sport"
         ]
       }
     },
     {
-      "id": "crm",
-      "tag": "02 · crm",
-      "badge": "b2b",
-      "title": "Модуль CRM для отдела продаж",
-      "description": "Разработка backend-части и SPA-интерфейса для управления лидами, задачами и оплатами.",
-      "stack": "Laravel · Vue · Role-based access · Audit-лог",
+      "id": "fcsemey",
+      "tag": "02 · fcsemey",
+      "badge": "sport",
+      "title": "FCSEMEY",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
       "theme": "crm",
       "background": {
-        "image": "radial-gradient(circle at 82% 18%, rgba(237, 94, 31, 0.28), transparent 30%), radial-gradient(circle at 16% 86%, rgba(144, 113, 99, 0.26), transparent 30%), linear-gradient(135deg, rgba(22, 17, 22, 0.96), rgba(40, 27, 31, 0.96))"
+        "image": "radial-gradient(circle at 82% 18%, rgba(31, 120, 255, 0.34), transparent 30%), radial-gradient(circle at 16% 86%, rgba(35, 220, 255, 0.2), transparent 30%), linear-gradient(135deg, rgba(12, 15, 28, 0.96), rgba(18, 32, 54, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/semey.webp",
+        "alt": "Логотип FCSEMEY",
+        "card": {
+          "height": "6rem",
+          "right": "1.25rem",
+          "bottom": "1.25rem",
+          "opacity": "0.36"
+        },
+        "modalBackground": {
+          "height": "15rem",
+          "right": "4rem",
+          "top": "4rem",
+          "opacity": "0.16"
+        }
       },
       "details": {
-        "summary": "Внутренний CRM-модуль для обработки лидов, назначения задач и контроля оплат в отделе продаж.",
-        "implementation": [
-          "Спроектировал роли, права доступа и сценарии просмотра данных для разных сотрудников.",
-          "Реализовал backend API на Laravel и связал его со SPA-интерфейсом на Vue.",
-          "Добавил audit-лог для важных действий: смены статуса, оплаты, комментариев и задач."
-        ],
-        "result": "Команда получила прозрачную историю работы с клиентом и меньше ручных действий при передаче лидов.",
+        "summary": "Информация по реализации проекта FCSEMEY будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
         "tags": [
-          "crm",
-          "rbac",
-          "audit log",
-          "sales",
-          "backend api"
+          "FCSEMEY",
+          "sport"
         ]
       }
     },
     {
-      "id": "portfolio",
-      "tag": "03 · portfolio",
-      "badge": "personal",
-      "title": "Личный сайт-портфолио",
-      "description": "SPA-структура с плавной навигацией, анимациями и цветовой палитрой на киновари и русском зелёном.",
-      "stack": "Nuxt · Tailwind · анимации · адаптив",
+      "id": "esentai",
+      "tag": "03 · esentai",
+      "badge": "premium",
+      "title": "ESENTAI",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
       "theme": "portfolio",
       "background": {
-        "image": "radial-gradient(circle at 24% 20%, rgba(55, 150, 131, 0.34), transparent 30%), radial-gradient(circle at 78% 72%, rgba(92, 219, 149, 0.18), transparent 28%), linear-gradient(135deg, rgba(15, 23, 21, 0.96), rgba(19, 53, 49, 0.96))"
+        "image": "radial-gradient(circle at 24% 20%, rgba(236, 196, 116, 0.34), transparent 30%), radial-gradient(circle at 78% 72%, rgba(141, 96, 255, 0.2), transparent 28%), linear-gradient(135deg, rgba(22, 19, 28, 0.96), rgba(42, 35, 28, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/esentai.webp",
+        "alt": "Логотип ESENTAI",
+        "card": {
+          "height": "18.5rem",
+          "right": "-2rem",
+          "bottom": "-7rem",
+          "opacity": "0.6"
+        },
+        "modalBackground": {
+          "height": "24rem",
+          "right": "2rem",
+          "top": "5.5rem",
+          "opacity": "0.14"
+        }
       },
       "details": {
-        "summary": "Персональный сайт, где навигация, стек и проекты собраны в компактный SPA-интерфейс без лишних экранов.",
-        "implementation": [
-          "Выстроил переключение разделов через Pinia и локализованный контент из JSON.",
-          "Собрал адаптивные секции на Tailwind с аккуратными hover/focus-состояниями.",
-          "Разделил текстовый контент и компоненты, чтобы кейсы можно было расширять без переписывания шаблонов."
-        ],
-        "result": "Портфолио легче поддерживать: новые проекты, теги, описания и фоны добавляются через структуру данных.",
+        "summary": "Информация по реализации проекта ESENTAI будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
         "tags": [
-          "portfolio",
-          "content driven",
-          "tailwind",
-          "pinia",
-          "i18n"
+          "ESENTAI",
+          "premium"
+        ]
+      }
+    },
+    {
+      "id": "kdc",
+      "tag": "04 · kdc",
+      "badge": "business",
+      "title": "KDC",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
+      "theme": "dashboard",
+      "background": {
+        "image": "radial-gradient(circle at 78% 22%, rgba(0, 214, 255, 0.3), transparent 30%), radial-gradient(circle at 14% 72%, rgba(93, 95, 239, 0.24), transparent 28%), linear-gradient(135deg, rgba(10, 17, 28, 0.96), rgba(20, 24, 50, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/kdc.webp",
+        "alt": "Логотип KDC",
+        "card": {
+          "height": "12.5rem",
+          "right": "1rem",
+          "bottom": "0rem",
+          "opacity": "0.5"
+        },
+        "modalBackground": {
+          "height": "18rem",
+          "right": "3rem",
+          "top": "4rem",
+          "opacity": "0.13"
+        }
+      },
+      "details": {
+        "summary": "Информация по реализации проекта KDC будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
+        "tags": [
+          "KDC",
+          "business"
+        ]
+      }
+    },
+    {
+      "id": "pfchangs",
+      "tag": "05 · pfchangs",
+      "badge": "food",
+      "title": "PFCHANGS",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
+      "theme": "crm",
+      "background": {
+        "image": "radial-gradient(circle at 20% 18%, rgba(210, 34, 45, 0.34), transparent 28%), radial-gradient(circle at 84% 76%, rgba(255, 190, 71, 0.24), transparent 30%), linear-gradient(135deg, rgba(26, 12, 15, 0.96), rgba(48, 26, 18, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/pfchangs.webp",
+        "alt": "Логотип PFCHANGS",
+        "card": {
+          "height": "2.25rem",
+          "right": "0.75rem",
+          "bottom": "5.75rem",
+          "opacity": "0.34"
+        },
+        "modalBackground": {
+          "height": "10rem",
+          "right": "2rem",
+          "top": "6rem",
+          "opacity": "0.13"
+        }
+      },
+      "details": {
+        "summary": "Информация по реализации проекта PFCHANGS будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
+        "tags": [
+          "PFCHANGS",
+          "food"
+        ]
+      }
+    },
+    {
+      "id": "izoterm",
+      "tag": "06 · izoterm",
+      "badge": "industry",
+      "title": "IZOTERM",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
+      "theme": "portfolio",
+      "background": {
+        "image": "radial-gradient(circle at 18% 76%, rgba(128, 222, 255, 0.32), transparent 28%), radial-gradient(circle at 82% 16%, rgba(196, 232, 255, 0.2), transparent 30%), linear-gradient(135deg, rgba(10, 20, 28, 0.96), rgba(16, 40, 48, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/izoterm.svg",
+        "alt": "Логотип IZOTERM",
+        "card": {
+          "height": "3.5rem",
+          "right": "1.75rem",
+          "bottom": "1.5rem",
+          "opacity": "0.38"
+        },
+        "modalBackground": {
+          "height": "11rem",
+          "right": "1.5rem",
+          "top": "6rem",
+          "opacity": "0.16"
+        }
+      },
+      "details": {
+        "summary": "Информация по реализации проекта IZOTERM будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
+        "tags": [
+          "IZOTERM",
+          "industry"
+        ]
+      }
+    },
+    {
+      "id": "almatykilem",
+      "tag": "07 · almatykilem",
+      "badge": "retail",
+      "title": "ALMATYKILEM",
+      "description": "Описание проекта будет добавлено на следующем шаге.",
+      "stack": "Стек будет уточнен",
+      "theme": "dashboard",
+      "background": {
+        "image": "radial-gradient(circle at 18% 20%, rgba(181, 42, 86, 0.32), transparent 28%), radial-gradient(circle at 78% 80%, rgba(18, 184, 166, 0.24), transparent 30%), radial-gradient(circle at 72% 18%, rgba(255, 183, 77, 0.18), transparent 24%), linear-gradient(135deg, rgba(24, 15, 28, 0.96), rgba(35, 28, 30, 0.96))"
+      },
+      "logo": {
+        "src": "/logos/almatykilem.webp",
+        "alt": "Логотип ALMATYKILEM",
+        "card": {
+          "height": "8.5rem",
+          "right": "0.75rem",
+          "bottom": "1.7rem",
+          "opacity": "0.32"
+        },
+        "modalBackground": {
+          "height": "22rem",
+          "right": "2rem",
+          "top": "5rem",
+          "opacity": "0.13"
+        }
+      },
+      "details": {
+        "summary": "Информация по реализации проекта ALMATYKILEM будет добавлена после уточнения деталей.",
+        "implementation": [],
+        "result": "",
+        "tags": [
+          "ALMATYKILEM",
+          "retail"
         ]
       }
     }
