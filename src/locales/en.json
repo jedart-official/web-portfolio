@@ -13,32 +13,40 @@
     }
   },
   "main": {
-    "aboutSubTitle": "Inside discovery",
-    "aboutTitle": "Создаю web-интерфейсы, которые хочется изучать.",
-    "aboutDescription": "Проектирую и разрабатываю SPA-приложения, личные кабинеты и порталы.\n Упор на чистую архитектуру, понятную навигацию и визуальный стиль,\n который подчеркивает функциональность.",
-    "downloadCV": "Скачать резюме PDF",
-    "viewProjects": "Смотреть проекты",
-    "checkStack": "Изучить стек",
-    "stackExperience": "Опыт в стеке",
+    "aboutSubTitle": "Backend / full-stack",
+    "aboutTitle": "I build and maintain web projects with PHP, Yii2, and Laravel.",
+    "aboutDescription": "I work with custom CMS platforms, order modules, payment flows, CRM integrations, and REST APIs.\n I help existing projects stay stable: fixing issues, optimizing queries, adapting code to newer PHP versions, and supporting Nuxt migrations.",
+    "downloadCV": "Download resume PDF",
+    "viewProjects": "View projects",
+    "checkStack": "Explore stack",
+    "stackExperience": "Stack experience",
     "overview": "Overview",
-    "whatIDo": "Чем занимаюсь"
+    "whatIDo": "What I do"
   },
   "stack": {
     "stackSubTitle": "Tech stack",
-    "stackTitle": "Стек, с которым работаю каждый день.",
-    "stackDescription": "Собираю SPA-приложения, где frontend и backend «разговаривают» на одном языке.\n Могу выстроить архитектуру, настроить окружение и довести продукт до продакшена.",
-    "visualSkillMap": "Visual skill map"
+    "stackTitle": "Technologies that actually appear across my projects.",
+    "stackDescription": "My core focus is PHP 8+, Yii2, Laravel, REST API, MySQL, Redis, and Vue/Nuxt frontend support.\n Percentages are based on how often a skill appears in projects, while standalone integrations are listed separately without affecting the scale.",
+    "visualSkillMap": "Skill frequency across projects",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Data",
+      "tools": "Tools",
+      "integrations": "Integrations"
+    }
   },
   "projects": {
     "casesSubTitle": "case studies",
-    "casesTitle": "Подборка проектов, где стек раскрывается полностью.",
-    "casesDescription": "Ниже — несколько кейсов с кратким описанием роли, технологий и результата.",
+    "casesTitle": "Commercial projects with CMS, APIs, orders, and integrations.",
+    "casesDescription": "This section collects websites and services where I worked on support, module development, integrations, optimization, and evolution of an existing codebase.",
     "openDetails": "Details",
     "closeDetails": "Close project details",
     "description": "Description",
     "implementation": "Implementation",
     "result": "Result",
     "stack": "Stack",
+    "openSite": "Open site",
     "tags": "Tags"
   }
 }

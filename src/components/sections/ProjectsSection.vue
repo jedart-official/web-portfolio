@@ -194,10 +194,9 @@
           </p>
 
           <div
-              class="mt-auto flex items-center justify-between gap-3 pt-3 border-t text-[11px]"
+              class="mt-auto flex items-center justify-end gap-3 pt-3 border-t text-[11px]"
               :class="projectTheme(project).footer"
           >
-            <span>{{ project.stack }}</span>
             <span class="shrink-0 text-cinnabarMain opacity-0 transition group-hover:opacity-100 group-focus:opacity-100">
               {{ t('projects.openDetails') }}
             </span>
@@ -316,14 +315,15 @@
                 </div>
 
                 <aside class="space-y-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4">
-                  <div>
-                    <p class="mb-2 text-[10px] uppercase tracking-[0.24em] text-gray-500">
-                      {{ t('projects.stack') }}
-                    </p>
-                    <p class="text-sm text-gray-200">
-                      {{ selectedProject.stack }}
-                    </p>
-                  </div>
+                  <a
+                      v-if="selectedProject.url"
+                      :href="selectedProject.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex w-full items-center justify-center rounded-2xl border border-cinnabarMain/40 bg-cinnabarMain/10 px-4 py-2.5 text-sm font-medium text-cinnabarMain transition hover:border-cinnabarMain hover:bg-cinnabarMain/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+                  >
+                    {{ t('projects.openSite') }}
+                  </a>
 
                   <div v-if="selectedProject.details?.tags?.length">
                     <p class="mb-3 text-[10px] uppercase tracking-[0.24em] text-gray-500">

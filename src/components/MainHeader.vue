@@ -16,13 +16,19 @@
 
 <template>
   <header class="fixed top-0 left-0 right-0 bg-night z-100 lg:static px-5 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#20242b]">
-    <div class="flex items-center gap-3">
+    <button
+        type="button"
+        @click="setScreen('home')"
+        class="flex items-center gap-3 rounded-xl text-left transition hover:text-cinnabarMain focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+        aria-label="Перейти на главную"
+    >
       <div class="w-10 h-10 rounded-full bg-cinnabarMain flex items-center justify-center overflow-hidden">
         <img src="/profile.webp" alt="Profile" class="w-full h-full object-cover"/>
       </div>
       <div class="flex flex-col">
         <span class="text-xs uppercase tracking-[0.24em] text-gray-400">web developer</span>
       </div>
+    </button>
       <div class="ml-auto flex sm:hidden items-center rounded-full border border-white/10 bg-[#15191f] p-1">
         <button
             type="button"
@@ -42,7 +48,6 @@
           EN
         </button>
       </div>
-    </div>
 
     <div class="flex gap-8">
       <nav class="flex gap-4 sm:gap-6 text-[11px] sm:text-xs uppercase tracking-[0.24em] text-gray-400 overflow-x-auto pb-1">

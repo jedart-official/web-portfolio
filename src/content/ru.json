@@ -20,22 +20,59 @@
   },
   "homeCards": [
     {
-      "tag": "web apps",
-      "title": "SPA-панели и личные кабинеты",
-      "subtitle": "Vue / Nuxt · REST API",
-      "target": "projects"
+      "tag": "Yii2 · CMS",
+      "title": "Внедрение самописной CMS",
+      "subtitle": "Подключение верстки, настройка шаблонов, компонентов и страниц, интеграция данных из БД, доработка административной части под требования проекта."
     },
     {
-      "tag": "b2b",
-      "title": "CRM-модули и внутренние сервисы",
-      "subtitle": "Laravel · MySQL",
-      "target": "projects"
+      "tag": "Yii2 · email",
+      "title": "Модуль логирования почты",
+      "subtitle": "Фиксация исходящих писем: тема, получатели, тело или шаблон, статус отправки, ошибки, история отправок и просмотр в админке."
     },
     {
-      "tag": "ui",
-      "title": "Дизайн-системы в коде",
-      "subtitle": "Tailwind · компоненты",
-      "target": "stack"
+      "tag": "Yii2 · payments",
+      "title": "Платежный модуль",
+      "subtitle": "Интеграции FreedomPay, Tarlan Payments, Epayment, единый интерфейс провайдеров, callback/webhook, проверка статусов, логирование и обработка ошибок."
+    },
+    {
+      "tag": "Yii2 · CRM",
+      "title": "Интеграция с AMO CRM",
+      "subtitle": "Создание лидов из заказов, передача состава заказа и товаров, получение и отображение лидов и товаров, синхронизация базовых полей."
+    },
+    {
+      "tag": "Yii2 · orders",
+      "title": "Модуль управления заказами",
+      "subtitle": "Оформление заказа, клиентская корзина, статусы, email-уведомления, данные для админки и клиентской части, сценарии создания, обновления и отмены."
+    },
+    {
+      "tag": "Yii2 · REST API",
+      "title": "REST API для функционала сайта",
+      "subtitle": "Выдача данных для клиентской части, методы корзины, заказов и статусов, унификация ответов, обработка ошибок, базовая защита и валидация."
+    },
+    {
+      "tag": "PHP 8+",
+      "title": "Поддержка и развитие PHP-кода",
+      "subtitle": "Исправление багов, доработка функционала, анализ проблем и сопровождение релизов в существующих проектах."
+    },
+    {
+      "tag": "Laravel 10 · Nuxt 3",
+      "title": "Рефакторинг приложения-конструктора",
+      "subtitle": "Переработка модулей управления Instagram-аккаунтом, улучшение структуры кода, устранение проблем в логике и повышение стабильности."
+    },
+    {
+      "tag": "Laravel 10 · API",
+      "title": "Оптимизация API",
+      "subtitle": "Уменьшение времени ответа, сокращение количества запросов к БД, оптимизация выборок и эндпоинтов, устранение узких мест."
+    },
+    {
+      "tag": "Vue 3 · Nuxt 3",
+      "title": "Переход клиентской части на Nuxt 3",
+      "subtitle": "Перенос страниц и компонентов, адаптация запросов к API, настройка роутинга и структуры проекта."
+    },
+    {
+      "tag": "PHP 8.1+",
+      "title": "Поддержка CMS при обновлении PHP",
+      "subtitle": "Исправление несовместимостей, обновление устаревших участков кода и устранение ошибок, связанных с изменениями в PHP."
     }
   ],
   "skillsBar": [
@@ -66,8 +103,22 @@
       "tag": "01 · fckairat",
       "badge": "sport",
       "title": "FCKAIRAT",
+      "url": "https://fckairat.com/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "sql",
+        "css",
+        "html",
+        "js",
+        "rest-api",
+        "mysql",
+        "redis",
+        "queue",
+        "gitlab"
+      ],
       "theme": "dashboard",
       "background": {
         "image": "radial-gradient(circle at 18% 24%, rgba(255, 206, 52, 0.36), transparent 30%), radial-gradient(circle at 84% 12%, rgba(20, 115, 68, 0.28), transparent 28%), linear-gradient(135deg, rgba(13, 16, 17, 0.96), rgba(27, 30, 20, 0.96))"
@@ -82,7 +133,12 @@
         "result": "",
         "tags": [
           "FCKAIRAT",
-          "sport"
+          "футбольный клуб",
+          "профессиональный спорт",
+          "академия",
+          "билеты",
+          "фан-шоп",
+          "GitHub"
         ]
       }
     },
@@ -91,8 +147,26 @@
       "tag": "02 · fcsemey",
       "badge": "sport",
       "title": "FCSEMEY",
+      "url": "https://fcsemey.com/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "css",
+        "html",
+        "js",
+        "rest-api",
+        "sql",
+        "mysql",
+        "redis",
+        "queue",
+        "gitlab",
+        "cache",
+        "git",
+        "amocrm",
+        "bootstrap"
+      ],
       "theme": "crm",
       "background": {
         "image": "radial-gradient(circle at 82% 18%, rgba(31, 120, 255, 0.34), transparent 30%), radial-gradient(circle at 16% 86%, rgba(35, 220, 255, 0.2), transparent 30%), linear-gradient(135deg, rgba(12, 15, 28, 0.96), rgba(18, 32, 54, 0.96))"
@@ -119,7 +193,13 @@
         "result": "",
         "tags": [
           "FCSEMEY",
-          "sport"
+          "футзальный клуб",
+          "профессиональный спорт",
+          "матчи",
+          "академия",
+          "фан-шоп",
+          "Bitrix24",
+          "Tarlan Payments"
         ]
       }
     },
@@ -128,8 +208,28 @@
       "tag": "03 · esentai",
       "badge": "premium",
       "title": "ESENTAI",
+      "url": "https://esentai.com/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "css",
+        "html",
+        "js",
+        "vue",
+        "typescript",
+        "sql",
+        "cache",
+        "nuxt",
+        "laravel",
+        "git",
+        "mysql",
+        "rest-api",
+        "bootstrap",
+        "docker",
+        "gitlab"
+      ],
       "theme": "portfolio",
       "background": {
         "image": "radial-gradient(circle at 24% 20%, rgba(236, 196, 116, 0.34), transparent 30%), radial-gradient(circle at 78% 72%, rgba(141, 96, 255, 0.2), transparent 28%), linear-gradient(135deg, rgba(22, 19, 28, 0.96), rgba(42, 35, 28, 0.96))"
@@ -156,7 +256,15 @@
         "result": "",
         "tags": [
           "ESENTAI",
-          "premium"
+          "торговый центр",
+          "премиальный ритейл",
+          "рестораны",
+          "развлечения",
+          "мобильное приложение",
+          "GitHub",
+          "PostgreSQL",
+          "Freedom",
+          "Kaspi"
         ]
       }
     },
@@ -165,8 +273,19 @@
       "tag": "04 · kdc",
       "badge": "business",
       "title": "KDC",
+      "url": "https://kazdc.kz/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "sql",
+        "yii2",
+        "css",
+        "html",
+        "js",
+        "bootstrap",
+        "mysql"
+      ],
       "theme": "dashboard",
       "background": {
         "image": "radial-gradient(circle at 78% 22%, rgba(0, 214, 255, 0.3), transparent 30%), radial-gradient(circle at 14% 72%, rgba(93, 95, 239, 0.24), transparent 28%), linear-gradient(135deg, rgba(10, 17, 28, 0.96), rgba(20, 24, 50, 0.96))"
@@ -193,7 +312,13 @@
         "result": "",
         "tags": [
           "KDC",
-          "business"
+          "data center",
+          "IT-инфраструктура",
+          "серверная инфраструктура",
+          "B2B",
+          "технологии",
+          "PostgreSQL",
+          "GitHub"
         ]
       }
     },
@@ -202,8 +327,24 @@
       "tag": "05 · pfchangs",
       "badge": "food",
       "title": "PFCHANGS",
+      "url": "https://pfchangs-kazakhstan.com/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "css",
+        "html",
+        "sql",
+        "cache",
+        "js",
+        "redis",
+        "rest-api",
+        "mysql",
+        "vue",
+        "git",
+        "gitlab"
+      ],
       "theme": "crm",
       "background": {
         "image": "radial-gradient(circle at 20% 18%, rgba(210, 34, 45, 0.34), transparent 28%), radial-gradient(circle at 84% 76%, rgba(255, 190, 71, 0.24), transparent 30%), linear-gradient(135deg, rgba(26, 12, 15, 0.96), rgba(48, 26, 18, 0.96))"
@@ -230,7 +371,14 @@
         "result": "",
         "tags": [
           "PFCHANGS",
-          "food"
+          "ресторан",
+          "азиатская кухня",
+          "китайская кухня",
+          "доставка",
+          "онлайн-заказ",
+          "GitHub",
+          "Bitrix24",
+          "Kaspi"
         ]
       }
     },
@@ -239,8 +387,18 @@
       "tag": "06 · izoterm",
       "badge": "industry",
       "title": "IZOTERM",
+      "url": "http://izoterm.kz/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "css",
+        "html",
+        "js",
+        "sql",
+        "mysql"
+      ],
       "theme": "portfolio",
       "background": {
         "image": "radial-gradient(circle at 18% 76%, rgba(128, 222, 255, 0.32), transparent 28%), radial-gradient(circle at 82% 16%, rgba(196, 232, 255, 0.2), transparent 30%), linear-gradient(135deg, rgba(10, 20, 28, 0.96), rgba(16, 40, 48, 0.96))"
@@ -267,7 +425,13 @@
         "result": "",
         "tags": [
           "IZOTERM",
-          "industry"
+          "производство",
+          "теплоизоляция",
+          "минеральная вата",
+          "строительные материалы",
+          "звукоизоляция",
+          "PostgreSQL",
+          "GitHub"
         ]
       }
     },
@@ -276,8 +440,18 @@
       "tag": "07 · almatykilem",
       "badge": "retail",
       "title": "ALMATYKILEM",
+      "url": "https://almatykilem.kz/",
       "description": "Описание проекта будет добавлено на следующем шаге.",
       "stack": "Стек будет уточнен",
+      "skills": [
+        "php",
+        "yii2",
+        "css",
+        "html",
+        "js",
+        "redis",
+        "cache"
+      ],
       "theme": "dashboard",
       "background": {
         "image": "radial-gradient(circle at 18% 20%, rgba(181, 42, 86, 0.32), transparent 28%), radial-gradient(circle at 78% 80%, rgba(18, 184, 166, 0.24), transparent 30%), radial-gradient(circle at 72% 18%, rgba(255, 183, 77, 0.18), transparent 24%), linear-gradient(135deg, rgba(24, 15, 28, 0.96), rgba(35, 28, 30, 0.96))"
@@ -304,7 +478,13 @@
         "result": "",
         "tags": [
           "ALMATYKILEM",
-          "retail"
+          "интернет-магазин",
+          "ковры",
+          "текстиль",
+          "декор",
+          "шоурум",
+          "GitHub",
+          "Kaspi"
         ]
       }
     }
