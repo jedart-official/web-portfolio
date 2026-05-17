@@ -5,7 +5,8 @@
       "menu": {
         "main": "Home",
         "stack": "Stack",
-        "projects": "Projects"
+        "projects": "Projects",
+        "career": "Career"
       }
     },
     "footer": {
@@ -21,7 +22,9 @@
     "checkStack": "Explore stack",
     "stackExperience": "Stack experience",
     "overview": "Overview",
-    "whatIDo": "What I do"
+    "whatIDo": "What I do",
+    "careerSubTitle": "Work Experience",
+    "careerTitle": "My development journey"
   },
   "stack": {
     "stackSubTitle": "Tech stack",
@@ -48,5 +51,10 @@
     "stack": "Stack",
     "openSite": "Open site",
     "tags": "Tags"
+  },
+  "career": {
+    "careerSubTitle": "Career",
+    "careerTitle": "Work experience and professional journey",
+    "careerDescription": "My work history, key tasks, and achievements in companies."
   }
 }

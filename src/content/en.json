@@ -11,6 +11,10 @@
     {
       "id": "projects",
       "label": "base.header.menu.projects"
+    },
+    {
+      "id": "career",
+      "label": "base.header.menu.career"
     }
   ],
   "contacts": {
@@ -818,6 +822,37 @@
         "bg": "bg-palette4",
         "text": "text-palette2"
       }
+    }
+  ],
+  "career": [
+    {
+      "company": "Skorobogatov I.V.",
+      "role": "Web Developer",
+      "period": "October 2023 — Present",
+      "duration": "2 years 8 months",
+      "logo": "/logos/sunwellight.webp",
+      "tasks": [
+        "Implemented and improved a custom CMS: connected layouts, configured templates, pages, components, and admin sections for project requirements.",
+        "Built an outgoing email logging module with send history, statuses, errors, and convenient viewing in the admin panel.",
+        "Developed payment modules with a unified provider interface, callback/webhook handling, status checks, logging, and error processing.",
+        "Implemented basic CRM integrations: creating leads from orders, sending order details, syncing key fields, and displaying data inside the system."
+      ]
+    },
+    {
+      "company": "Profi Soft",
+      "role": "CRM Integrator",
+      "period": "April 2022 — September 2022",
+      "duration": "6 months",
+      "logo": "/logos/profisoft.webp",
+      "logoLight": "/logos/profisoft-dark.webp",
+      "tasks": [
+        "Configured CRM systems for client workflows: funnels, stages, cards, fields, access rights, and automated scenarios.",
+        "Designed business processes for request distribution, notifications, stage control, and internal regulations.",
+        "Connected external services, configured data exchange, tested integration scenarios, and resolved failures.",
+        "Prepared analytical reports for leads, deals, request sources, and manager performance.",
+        "Clarified requirements with teams and clients, aligned process logic, and supported rollout of changes.",
+        "Handled user requests, reproduced issues, adjusted settings, and consulted users on system workflows."
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@ import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
 
 export const useMainStore = defineStore('main', () => {
-    const availableScreens = ['home', 'stack', 'projects'];
+    const availableScreens = ['home', 'stack', 'projects', 'career'];
     const availableLocales = ['ru', 'en'];
     const availableThemes = ['dark', 'light'];
     const savedScreen = localStorage.getItem('activeScreen');

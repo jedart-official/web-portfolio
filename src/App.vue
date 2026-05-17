@@ -4,6 +4,7 @@ import MainHeader from "@/components/MainHeader.vue";
 import MainSection from "@/components/sections/MainSection.vue";
 import StackSection from "@/components/sections/StackSection.vue";
 import ProjectsSection from "@/components/sections/ProjectsSection.vue";
+import CareerSection from "@/components/sections/CareerSection.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import {computed, onMounted} from "vue";
 import {useMainStore} from "@/stores/main.js";
@@ -28,6 +29,7 @@ const currentSection = computed(() => {
     home: MainSection,
     stack: StackSection,
     projects: ProjectsSection,
+    career: CareerSection,
   };
 
   return map[activeScreen.value] ?? MainSection;

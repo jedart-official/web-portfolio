@@ -5,7 +5,8 @@
       "menu": {
         "main": "Главная",
         "stack": "Стек",
-        "projects": "Проекты"
+        "projects": "Проекты",
+        "career": "Карьера"
       }
     },
     "footer": {
@@ -21,7 +22,9 @@
     "checkStack": "Изучить стек",
     "stackExperience": "Опыт в стеке",
     "overview": "Overview",
-    "whatIDo": "Чем занимаюсь"
+    "whatIDo": "Чем занимаюсь",
+    "careerSubTitle": "Work Experience",
+    "careerTitle": "Мой путь в разработке"
   },
   "stack": {
     "stackSubTitle": "Tech stack",
@@ -48,5 +51,10 @@
     "stack": "Стек",
     "openSite": "Открыть сайт",
     "tags": "Теги"
+  },
+  "career": {
+    "careerSubTitle": "Карьера",
+    "careerTitle": "Опыт работы и профессиональный путь",
+    "careerDescription": "История моей работы, ключевые задачи и достижения в компаниях."
   }
 }
