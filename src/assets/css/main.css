@@ -137,6 +137,10 @@ body.theme-light {
     color: #17211d;
 }
 
+.theme-light .nav-btn:hover {
+    color: #ed5e1f;
+}
+
 .theme-light .control-pill .bg-white\/10 {
     background: rgba(237, 94, 31, 0.12);
 }
