@@ -169,17 +169,30 @@
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-night/10 via-night/25 to-night/75"></div>
 
         <div class="relative z-10 flex h-full flex-col">
-          <div class="mb-3 flex items-center justify-between gap-2">
-            <span
-                class="text-[10px] sm:text-[11px] uppercase tracking-[0.24em]"
-                :class="projectTheme(project).tag"
-            >
-              {{ project.tag }}
-            </span>
+          <div class="mb-3 flex items-start justify-between gap-2">
+            <div class="flex flex-col gap-1.5">
+              <span
+                  class="text-[10px] sm:text-[11px] uppercase tracking-[0.24em]"
+                  :class="projectTheme(project).tag"
+              >
+                {{ project.tag }}
+              </span>
+              
+              <div v-if="project.categories" class="flex flex-wrap gap-1.5 mt-0.5">
+                <span 
+                  v-for="category in project.categories" 
+                  :key="category"
+                  class="px-1.5 py-0.5 rounded-md text-[8px] uppercase tracking-wider border border-white/10 bg-white/5 text-gray-400"
+                >
+                  {{ category }}
+                </span>
+              </div>
+            </div>
 
             <span
-                class="px-2 py-1 rounded-full text-[10px] font-semibold"
-                :class="projectTheme(project).badge"
+                class="px-2 py-1 rounded-full text-[10px] font-semibold shrink-0"
+                :class="!project.badgeColor ? projectTheme(project).badge : ''"
+                :style="project.badgeColor ? { backgroundColor: project.badgeColor, color: '#000' } : {}"
             >
               {{ project.badge }}
             </span>
@@ -189,7 +202,7 @@
             {{ project.title }}
           </h3>
 
-          <p class="text-xs mb-3" :class="projectTheme(project).text">
+          <p class="text-xs mb-3 line-clamp-3" :class="projectTheme(project).text">
             {{ project.description }}
           </p>
 
@@ -278,7 +291,7 @@
                 </button>
               </div>
 
-              <div class="grid gap-5 lg:grid-cols-[1.2fr,0.8fr]">
+              <div class="grid gap-5 lg:grid-cols-[1.2fr,0.8fr] items-start">
                 <div class="space-y-5">
                   <div>
                     <p class="mb-2 text-[10px] uppercase tracking-[0.24em] text-gray-500">
@@ -314,7 +327,7 @@
                   </div>
                 </div>
 
-                <aside class="space-y-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+                <aside class="lg:sticky lg:top-0 space-y-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4">
                   <a
                       v-if="selectedProject.url"
                       :href="selectedProject.url"

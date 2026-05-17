@@ -22,11 +22,11 @@
     {
       "id": "fckairat",
       "tag": "01 · fckairat",
-      "badge": "sport",
+      "badge": "Sport club",
       "title": "FCKAIRAT",
       "url": "https://fckairat.com/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development of the corporate website for FC Kairat—a comprehensive digital platform combining media resources, commerce, and internal club management services.",
+      "stack": "Yii2, PHP 8.1, MySQL, Redis, REST API, Kaspi/Paybox integration",
       "skills": [
         "php",
         "yii2",
@@ -49,28 +49,40 @@
         "alt": "FCKAIRAT logo"
       },
       "details": {
-        "summary": "Implementation details for FCKAIRAT will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "I participated in the development of a large-scale club ecosystem. We created a single point of access for fans, integrating a news portal, online store, and ticketing system.",
+        "implementation": [
+          "Implemented the news section, match calendar, and archives with tournament tables.",
+          "Integrated ticketing and season pass sales with aggregator synchronization.",
+          "Developed an e-commerce store with a cart, online payments (Kaspi, Paybox), and courier service integration.",
+          "Created the user personal account and sections about the team, history, and academy.",
+          "Developed a CRM system for the store and Academy, as well as academy recruitment functionality.",
+          "Designed and developed a REST API for the club's mobile application."
+        ],
+        "result": "Key challenges included performance optimization for high loads, complex synchronization with ticketing aggregators, and seamless online payment implementation. All tasks were successfully completed by the team.",
         "tags": [
           "FCKAIRAT",
           "football club",
           "professional sport",
           "academy",
           "tickets",
-          "fan shop",
-          "GitHub"
+          "fan shop"
         ]
-      }
+      },
+      "categories": [
+        "Development",
+        "Improvements",
+        "Support"
+      ],
+      "badgeColor": "#FFCE34"
     },
     {
       "id": "fcsemey",
       "tag": "02 · fcsemey",
-      "badge": "sport",
+      "badge": "Sport club",
       "title": "FCSEMEY",
       "url": "https://fcsemey.com/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development of the corporate website for the Semey futsal club—a modern platform combining media content, sales systems, and club management tools.",
+      "stack": "Yii2, PHP 8.1, MySQL, Redis, REST API, Tarlan Payments integration",
       "skills": [
         "php",
         "yii2",
@@ -109,9 +121,16 @@
         }
       },
       "details": {
-        "summary": "Implementation details for FCSEMEY will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "For the Semey futsal club, I implemented a full-featured digital ecosystem. The main goal was to create a user-friendly interface for fans and automate the club's internal business processes.",
+        "implementation": [
+          "Developed a news portal, match calendar, and archives with interactive tournament tables.",
+          "Implemented a complex ticketing and season pass system integrating two different aggregators.",
+          "Created an e-commerce store with a full-featured cart and secure online payments.",
+          "Developed a user personal account for managing purchases and subscriptions.",
+          "Integrated a specialized CRM system for managing online store orders.",
+          "Created sections for the team and the club's academy."
+        ],
+        "result": "The project was successfully launched, providing the club with a reliable platform for fan engagement and stable commercial module operation.",
         "tags": [
           "FCSEMEY",
           "futsal club",
@@ -119,19 +138,24 @@
           "matches",
           "academy",
           "fan shop",
-          "Bitrix24",
           "Tarlan Payments"
         ]
-      }
+      },
+      "categories": [
+        "Development",
+        "Integrations",
+        "Support"
+      ],
+      "badgeColor": "#1f78ff"
     },
     {
       "id": "esentai",
       "tag": "03 · esentai",
-      "badge": "premium",
+      "badge": "Shopping Mall",
       "title": "ESENTAI",
       "url": "https://esentai.com/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development of the digital platform for the premium shopping center Esentai Mall—a comprehensive solution for presenting world-class brands and ensuring an exceptional user experience.",
+      "stack": "Confidential / Enterprise Stack",
       "skills": [
         "php",
         "yii2",
@@ -172,31 +196,39 @@
         }
       },
       "details": {
-        "summary": "Implementation details for ESENTAI will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "As part of the project for Esentai Mall, I was involved in the development and support of the mall's web ecosystem. The main focus was on creating a high-quality digital product that matches the status of a premium brand.",
+        "implementation": [
+          "Developed and optimized the frontend architecture to ensure maximum responsiveness and stability.",
+          "Created an interactive directory of boutiques, restaurants, and entertainment areas with advanced filtering.",
+          "Implemented modules for announcing exclusive events, news, and special brand offers.",
+          "Integrated visitor information services and feedback systems.",
+          "Developed and evolved the user personal account and internal audience engagement mechanics.",
+          "Improved the User Journey to ensure seamless access to the shopping center's services."
+        ],
+        "result": "The platform successfully functions as a key digital channel for customer engagement, providing high involvement and easy access to the entire mall infrastructure.",
         "tags": [
           "ESENTAI",
           "shopping mall",
           "premium retail",
           "restaurants",
           "entertainment",
-          "mobile app",
-          "GitHub",
-          "PostgreSQL",
-          "Freedom",
-          "Kaspi"
+          "mobile app"
         ]
-      }
+      },
+      "categories": [
+        "Development",
+        "Optimization"
+      ],
+      "badgeColor": "#ecc474"
     },
     {
       "id": "kdc",
       "tag": "04 · kdc",
-      "badge": "business",
+      "badge": "Trading House",
       "title": "KDC",
       "url": "https://kazdc.kz/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development of a data and process management information system for Kazakhstan Distributors Centre (KDC)—a digital environment ensuring transparency and efficiency in distribution network interactions.",
+      "stack": "Confidential / Enterprise Information System",
       "skills": [
         "php",
         "sql",
@@ -228,29 +260,41 @@
         }
       },
       "details": {
-        "summary": "Implementation details for KDC will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "As part of the KDC project, I participated in the creation and development of a comprehensive information system. The project aimed to centralize information flows, automate reporting, and create a unified digital space for managing product and information chains.",
+        "implementation": [
+          "Developed and evolved the information system architecture for processing and structuring large volumes of product and partner data.",
+          "Created monitoring modules and transparent display of information for brands represented in the company portfolio.",
+          "Implemented secure data collection and information exchange protocols within a distributed network of distributors.",
+          "Optimized data presentation mechanisms for various user groups, ensuring high access speed to critical information.",
+          "Developed system interaction interfaces tailored for specific business monitoring tasks.",
+          "Integrated multilingual support to ensure information accessibility within international cooperation."
+        ],
+        "result": "The system successfully functions as a central hub of the company's information infrastructure, providing reliable storage, processing, and visualization of data necessary for management decision-making.",
         "tags": [
           "KDC",
           "data center",
-          "IT infrastructure",
-          "server infrastructure",
+          "IT-инфраструктура",
+          "серверная инфраструктура",
           "B2B",
-          "technology",
+          "технологии",
           "PostgreSQL",
           "GitHub"
         ]
-      }
+      },
+      "categories": [
+        "Development",
+        "Maintenance"
+      ],
+      "badgeColor": "#00d6ff"
     },
     {
       "id": "pfchangs",
       "tag": "05 · pfchangs",
-      "badge": "food",
+      "badge": "Restaurant Chain",
       "title": "PFCHANGS",
       "url": "https://pfchangs-kazakhstan.com/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development and support of the P.F. Chang's restaurant chain web platform—a system combining online commerce, booking, and deep integration with restaurant software.",
+      "stack": "Yii2, PHP 8.1, r-keeper Integration, KaspiQR",
       "skills": [
         "php",
         "yii2",
@@ -287,9 +331,16 @@
         }
       },
       "details": {
-        "summary": "Implementation details for PFCHANGS will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "As part of the project for P.F. Chang's, I provided technical support and implemented new functional features for the platform. The work was focused on ensuring the stability of critical restaurant business processes.",
+        "implementation": [
+          "Support and improvement of the interactive menu with calorie and allergen tables.",
+          "Maintenance and development of the table booking system (custom implementation and Remarked integration).",
+          "Technical support for the online food ordering and cart module.",
+          "Worked on synchronizing dish and order data with the r-keeper automation system to optimize kitchen operations.",
+          "Evolved the user personal account and loyalty systems.",
+          "Integrated and supported payment services, including KaspiQR."
+        ],
+        "result": "Thanks to proactive support and the implementation of improvements, the platform stably handles high loads and ensures the uninterrupted operation of delivery and booking services.",
         "tags": [
           "PFCHANGS",
           "restaurant",
@@ -297,20 +348,23 @@
           "chinese cuisine",
           "delivery",
           "online ordering",
-          "GitHub",
-          "Bitrix24",
           "Kaspi"
         ]
-      }
+      },
+      "categories": [
+        "Maintenance",
+        "Improvements"
+      ],
+      "badgeColor": "#d2222d"
     },
     {
       "id": "izoterm",
       "tag": "06 · izoterm",
-      "badge": "industry",
+      "badge": "Manufacturing",
       "title": "IZOTERM",
       "url": "http://izoterm.kz/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the technical support and development of the Izoterm manufacturing company corporate website, implemented on a custom Yii2-based CMS.",
+      "stack": "Yii2, PHP 8.1, Interactive Maps, CMS Support",
       "skills": [
         "php",
         "yii2",
@@ -341,29 +395,38 @@
         }
       },
       "details": {
-        "summary": "Implementation details for IZOTERM will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "For the Izoterm project, I was involved in supporting the stable operation of the web resource and implementing improvements for content and functional sections. The main task was to ensure the relevance of the information presented and the correct operation of interactive elements.",
+        "implementation": [
+          "Technical support and improvement of product catalog pages and news modules.",
+          "Updated and evolved feedback forms to improve interaction with B2B clients.",
+          "Worked with interactive maps: modified marker functionality and delivery geography display.",
+          "Optimized and corrected site content sections in accordance with client requirements.",
+          "Ensured correct display and functionality of the resource based on the existing CMS."
+        ],
+        "result": "Proactive support and high-quality implementation of improvements allowed maintaining a high level of site informativeness, necessary for presenting the factory's products.",
         "tags": [
           "IZOTERM",
           "manufacturing",
           "thermal insulation",
           "mineral wool",
           "building materials",
-          "soundproofing",
-          "PostgreSQL",
-          "GitHub"
+          "soundproofing"
         ]
-      }
+      },
+      "categories": [
+        "Maintenance",
+        "Improvements"
+      ],
+      "badgeColor": "#80deff"
     },
     {
       "id": "almatykilem",
       "tag": "07 · almatykilem",
-      "badge": "retail",
+      "badge": "Online Store",
       "title": "ALMATYKILEM",
       "url": "https://almatykilem.kz/",
-      "description": "Project description will be added in the next step.",
-      "stack": "Stack to be specified",
+      "description": "Participated in the development and technical support of the Almaty Kilem online store, built on a custom Yii2-based CMS. The work involved evolving commercial modules and complex financial integrations.",
+      "stack": "Yii2, PHP 8.1, 1C Sync, Kaspi Sync, Bank Integration",
       "skills": [
         "php",
         "yii2",
@@ -394,20 +457,30 @@
         }
       },
       "details": {
-        "summary": "Implementation details for ALMATYKILEM will be added after clarification.",
-        "implementation": [],
-        "result": "",
+        "summary": "For the Almaty Kilem project, I provided support and implemented functional improvements. The main focus was on optimizing the purchasing process, developing payment tools, and integrating with external trading platforms.",
+        "implementation": [
+          "Evolved and modified the product catalog, shopping cart, and user account system functionality.",
+          "Implemented and supported payment modules, including the integration of the Eurasian Bank credit purchase system.",
+          "Worked on synchronizing products and promotions with the 1C system to ensure data relevance.",
+          "Technical support for Kaspi store integration to expand sales channels.",
+          "Improved the search system for products, articles, and promotions.",
+          "Maintained marketing communication modules: email and SMS newsletters, and the news section."
+        ],
+        "result": "The implemented improvements automated data exchange with accounting systems and expanded payment options, positively impacting conversion and order management efficiency.",
         "tags": [
           "ALMATYKILEM",
           "online store",
           "carpets",
-          "textile",
+          "textiles",
           "decor",
-          "showroom",
-          "GitHub",
-          "Kaspi"
+          "showroom"
         ]
-      }
+      },
+      "categories": [
+        "Maintenance",
+        "Improvements"
+      ],
+      "badgeColor": "#b52a56"
     }
   ],
   "homeCards": [
@@ -471,17 +544,17 @@
     {
       "label": "Frontend",
       "width": "88%",
-      "note": "3+ г."
+      "note": "3+ y."
     },
     {
       "label": "Backend",
       "width": "82%",
-      "note": "3+ г."
+      "note": "3+ y."
     },
     {
       "label": "Дизайн",
       "width": "68%",
-      "note": "2+ г."
+      "note": "2+ y."
     },
     {
       "label": "DevOps",
@@ -511,7 +584,7 @@
       ]
     },
     {
-      "title": "инструменты",
+      "title": "tools",
       "tags": [
         "Git / GitLab",
         "Docker",
@@ -523,7 +596,7 @@
   "visualSkills": [
     {
       "id": "pinia",
-      "title": "State-менеджмент (Pinia)",
+      "title": "State Management (Pinia)",
       "level": "strong",
       "badge": {
         "label": "strong",
@@ -556,7 +629,7 @@
       "title": "Accessibility",
       "level": "progress",
       "badge": {
-        "label": "в процессе",
+        "label": "in progress",
         "bg": "bg-palette2",
         "text": "text-night"
       }
