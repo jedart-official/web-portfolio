@@ -73,7 +73,29 @@
         "Improvements",
         "Support"
       ],
-      "badgeColor": "#FFCE34"
+      "badgeColor": "#FFCE34",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#FFCE34",
+            "color": "#050608"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#f2c94c",
+            "color": "#5f4907"
+          },
+          "logo": {
+            "card": {
+              "opacity": "1"
+            },
+            "modalBackground": {
+              "opacity": "0.30"
+            }
+          }
+        }
+      }
     },
     {
       "id": "fcsemey",
@@ -146,7 +168,29 @@
         "Integrations",
         "Support"
       ],
-      "badgeColor": "#1f78ff"
+      "badgeColor": "#1f78ff",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#1f78ff",
+            "color": "#ffffff"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#d9e9ff",
+            "color": "#0b2d5c"
+          },
+          "logo": {
+            "card": {
+              "opacity": "1"
+            },
+            "modalBackground": {
+              "opacity": "1"
+            }
+          }
+        }
+      }
     },
     {
       "id": "esentai",
@@ -192,7 +236,7 @@
           "height": "24rem",
           "right": "2rem",
           "top": "5.5rem",
-          "opacity": "0.14"
+          "opacity": "1"
         }
       },
       "details": {
@@ -219,7 +263,36 @@
         "Development",
         "Optimization"
       ],
-      "badgeColor": "#ecc474"
+      "badgeColor": "#ecc474",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#ecc474",
+            "color": "#17110b"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#ead7b0",
+            "color": "#33291a"
+          },
+          "logo": {
+            "src": "/logos/esentai-dark.webp",
+            "card": {
+              "height": "6.5rem",
+              "right": "1rem",
+              "bottom": "5rem",
+              "opacity": "0.78"
+            },
+            "modalBackground": {
+              "height": "24rem",
+              "right": "2rem",
+              "top": "5.5rem",
+              "opacity": "1"
+            }
+          }
+        }
+      }
     },
     {
       "id": "kdc",
@@ -244,7 +317,7 @@
         "image": "radial-gradient(circle at 78% 22%, rgba(0, 214, 255, 0.3), transparent 30%), radial-gradient(circle at 14% 72%, rgba(93, 95, 239, 0.24), transparent 28%), linear-gradient(135deg, rgba(10, 17, 28, 0.96), rgba(20, 24, 50, 0.96))"
       },
       "logo": {
-        "src": "/logos/kdc.webp",
+        "src": "/logos/kdc.png",
         "alt": "KDC logo",
         "card": {
           "height": "12.5rem",
@@ -273,19 +346,38 @@
         "tags": [
           "KDC",
           "data center",
-          "IT-инфраструктура",
-          "серверная инфраструктура",
-          "B2B",
-          "технологии",
-          "PostgreSQL",
-          "GitHub"
+          "IT infrastructure",
+          "server infrastructure",
+          "technology"
         ]
       },
       "categories": [
         "Development",
         "Maintenance"
       ],
-      "badgeColor": "#00d6ff"
+      "badgeColor": "#00d6ff",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#00d6ff",
+            "color": "#03191f"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#d8f7ff",
+            "color": "#12343d"
+          },
+          "logo": {
+            "card": {
+              "opacity": "1"
+            },
+            "modalBackground": {
+              "opacity": "1"
+            }
+          }
+        }
+      }
     },
     {
       "id": "pfchangs",
@@ -355,7 +447,36 @@
         "Maintenance",
         "Improvements"
       ],
-      "badgeColor": "#d2222d"
+      "badgeColor": "#d2222d",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#d2222d",
+            "color": "#ffffff"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#ffe1e3",
+            "color": "#78131a"
+          },
+          "logo": {
+            "src": "/logos/pfchangs-dark.webp",
+            "card": {
+              "height": "6.5rem",
+              "right": "0.75rem",
+              "bottom": "3.75rem",
+              "opacity": "0.58"
+            },
+            "modalBackground": {
+              "height": "10rem",
+              "right": "2rem",
+              "top": "6rem",
+              "opacity": "1"
+            }
+          }
+        }
+      }
     },
     {
       "id": "izoterm",
@@ -417,7 +538,29 @@
         "Maintenance",
         "Improvements"
       ],
-      "badgeColor": "#80deff"
+      "badgeColor": "#80deff",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#80deff",
+            "color": "#03191f"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#dff7ff",
+            "color": "#16475a"
+          },
+          "logo": {
+            "card": {
+              "opacity": "1"
+            },
+            "modalBackground": {
+              "opacity": "0.30"
+            }
+          }
+        }
+      }
     },
     {
       "id": "almatykilem",
@@ -480,7 +623,29 @@
         "Maintenance",
         "Improvements"
       ],
-      "badgeColor": "#b52a56"
+      "badgeColor": "#b52a56",
+      "cardTheme": {
+        "dark": {
+          "badge": {
+            "background": "#b52a56",
+            "color": "#ffffff"
+          }
+        },
+        "light": {
+          "badge": {
+            "background": "#f8dce7",
+            "color": "#6e1732"
+          },
+          "logo": {
+            "card": {
+              "opacity": "0.9"
+            },
+            "modalBackground": {
+              "opacity": "0.30"
+            }
+          }
+        }
+      }
     }
   ],
   "homeCards": [
@@ -552,7 +717,7 @@
       "note": "3+ y."
     },
     {
-      "label": "Дизайн",
+      "label": "Design",
       "width": "68%",
       "note": "2+ y."
     },

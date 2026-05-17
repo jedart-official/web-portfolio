@@ -8,12 +8,12 @@ const {content} = useContent();
 
 <template>
   <footer
-      class="px-5 sm:px-6 lg:px-8 py-3 sm:py-4 border-t border-[#20242b] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
+      class="main-footer px-5 sm:px-6 lg:px-8 py-3 sm:py-4 border-t border-[#20242b] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
     <div class="flex flex-wrap items-center gap-3 sm:gap-4">
       <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-gray-500">{{t('base.footer.contacts')}}</span>
       <a
           :href="'mailto:' + content.contacts.email"
-          class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-cinnabarMain/70 hover:text-cinnabarMain focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+          class="contact-link group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-cinnabarMain/70 hover:text-cinnabarMain focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
           :aria-label="`Email: ${content.contacts.email}`"
           :title="content.contacts.email"
       >
@@ -27,7 +27,7 @@ const {content} = useContent();
           target="_blank"
           rel="noopener noreferrer"
           :href="'https://t.me/' + content.contacts.telegram"
-          class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-[#2aabee]/80 hover:text-[#2aabee] focus:outline-none focus:ring-2 focus:ring-[#2aabee]/60"
+          class="contact-link group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-[#2aabee]/80 hover:text-[#2aabee] focus:outline-none focus:ring-2 focus:ring-[#2aabee]/60"
           :aria-label="`Telegram: ${content.contacts.telegram}`"
           :title="content.contacts.telegram"
       >
@@ -40,7 +40,7 @@ const {content} = useContent();
           target="_blank"
           rel="noopener noreferrer"
           :href="'https://github.com/' + content.contacts.github"
-          class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+          class="contact-link group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-gray-200 transition hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
           :aria-label="`GitHub: ${content.contacts.github}`"
           :title="content.contacts.github"
       >

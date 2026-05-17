@@ -12,7 +12,7 @@ import {storeToRefs} from "pinia";
 
 
 const store = useMainStore();
-const {activeScreen, showDown,scroller} = storeToRefs(store);
+const {activeScreen, showDown, scroller, themeClass} = storeToRefs(store);
 const {onScroll} = store;
 
 
@@ -40,14 +40,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full max-w-6xl mx-0 lg:mx-4 bg-night  lg:rounded-2xl shadow-2xl border border-[#181a1f] flex flex-col overflow-hidden font-sans
-            min-h-[620px] lg:h-[640px]">
+  <div
+      :class="themeClass"
+      class="app-shell w-full max-w-6xl mx-0 lg:mx-4 bg-night lg:rounded-2xl shadow-2xl border border-[#181a1f] flex flex-col overflow-hidden font-sans min-h-[620px] lg:h-[640px]"
+  >
     <MainHeader></MainHeader>
 
     <div @scroll.passive="onScroll" ref="scroller" class="app-scrollbar relative flex-1 overflow-y-auto">
       <div class="relative min-h-full">
         <div
-            class="pointer-events-none hidden lg:block absolute inset-0 opacity-40 z-0"
+            class="ambient-layer pointer-events-none hidden lg:block absolute inset-0 opacity-40 z-0"
             style="
         background-image:
           radial-gradient(circle at 10% 20%, rgba(255,255,255,0.18) 0, transparent 44%),
@@ -81,7 +83,7 @@ onMounted(() => {
           :class="[
         'absolute bottom-4 right-4 z-20',
         'hidden h-10 w-10 lg:grid place-items-center rounded-full',
-        'bg-[#15191f] backdrop-blur border border-white/15 shadow-lg',
+        'scroll-down-button bg-[#15191f] backdrop-blur border border-white/15 shadow-lg',
         'text-white hover:bg-[#15191f]/80 active:scale-95 transition',
         'focus:outline-none focus:ring-2 focus:ring-white/30',
   showDown

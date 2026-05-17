@@ -156,7 +156,7 @@
             {{ group.title }}
           </p>
           <div class="flex flex-wrap gap-2">
-              <span v-for="skill in group.skills" :key="skill.id" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#151a21] border border-[#27303b] text-xs">
+              <span v-for="skill in group.skills" :key="skill.id" class="skill-chip inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#151a21] border border-[#27303b] text-xs">
                 <span
                     v-if="!skill.deviconClass"
                     class="grid h-5 min-w-5 place-items-center rounded-full px-1 text-[9px] font-semibold leading-none"
@@ -183,9 +183,9 @@
       <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{t('stack.visualSkillMap')}}
       </p>
-      <div class="relative rounded-xl border border-[#272e3a] bg-[#11151b] p-3">
+      <div class="surface-panel relative rounded-xl border border-[#272e3a] bg-[#11151b] p-3">
         <div class="max-h-[390px] space-y-3 overflow-y-auto pr-2 scrollbar-thin">
-          <div :key="item.id" v-for="item in skillStats" class="rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
+          <div :key="item.id" v-for="item in skillStats" class="surface-card rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
             <div class="mb-2 flex items-center justify-between gap-3">
               <span class="inline-flex items-center gap-2 text-xs font-medium text-gray-300">
                 <span
@@ -204,7 +204,7 @@
               </span>
               <span class="text-[10px] text-gray-500">{{ item.percent }}%</span>
             </div>
-            <div class="h-2 overflow-hidden rounded-full bg-[#1a1f27]">
+            <div class="progress-track h-2 overflow-hidden rounded-full bg-[#1a1f27]">
               <div
                   class="h-full rounded-full bg-gradient-to-r from-cinnabarMain via-palette3 to-palette5"
                   :style="{width: `${item.percent}%`, backgroundImage: 'linear-gradient(to right, #ED5E1F, #5CDB95, #379683)' }"
@@ -212,9 +212,8 @@
             </div>
           </div>
         </div>
-        <div class="pointer-events-none absolute inset-x-3 bottom-3 h-10 bg-gradient-to-t from-[#11151b] to-transparent"></div>
+        <div class="fade-bottom pointer-events-none absolute inset-x-3 bottom-3 h-10 bg-gradient-to-t from-[#11151b] to-transparent"></div>
       </div>
     </div>
   </section>
 </template>
-

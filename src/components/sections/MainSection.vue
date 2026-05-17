@@ -155,7 +155,7 @@ const projectSkills = computed(() => {
 
 
       <div class="flex flex-col gap-4 sm:gap-6">
-        <div class="rounded-xl bg-[#11151b] border border-[#252a33] p-4">
+        <div class="surface-panel rounded-xl bg-[#11151b] border border-[#252a33] p-4">
 
           <div class="flex items-center justify-between mb-3">
             <h2 class="text-sm font-semibold"> {{ t('main.stackExperience') }}</h2>
@@ -180,7 +180,7 @@ const projectSkills = computed(() => {
                   ></i>
                   {{ skill.label }}
                 </span>
-                <div class="flex-1 h-2 rounded-full bg-[#1a1f27] overflow-hidden">
+                <div class="progress-track flex-1 h-2 rounded-full bg-[#1a1f27] overflow-hidden">
                   <div class="h-full bg-gradient-to-r from-cinnabarMain via-palette3 to-palette5"
                        :style="{width: skill.width, backgroundImage: 'linear-gradient(to right, #ED5E1F, #5CDB95, #379683)' }"
                   ></div>
@@ -188,7 +188,7 @@ const projectSkills = computed(() => {
                 <span class="w-10 text-gray-400 text-right">{{ skill.width }}</span>
               </div>
             </div>
-            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#11151b] to-transparent"></div>
+            <div class="fade-bottom pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#11151b] to-transparent"></div>
           </div>
 
         </div>
@@ -199,12 +199,12 @@ const projectSkills = computed(() => {
       <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{ t('main.whatIDo') }}
       </p>
-      <div class="relative rounded-xl border border-[#252a33] bg-[#11151b] p-3">
+      <div class="surface-panel relative rounded-xl border border-[#252a33] bg-[#11151b] p-3">
         <div class="max-h-85 space-y-2 overflow-y-auto pr-2 scrollbar-thin sm:max-h-48">
           <article
               v-for="card in content.homeCards"
               :key="card.title"
-              class="rounded-xl bg-[#15191f] border border-[#262a33] p-3"
+              class="surface-card rounded-xl bg-[#15191f] border border-[#262a33] p-3"
           >
           <span class="block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-gray-500 mb-1">
             {{ card.tag }}
@@ -217,7 +217,7 @@ const projectSkills = computed(() => {
           </span>
           </article>
         </div>
-        <div class="pointer-events-none absolute inset-x-3 bottom-3 h-10 bg-gradient-to-t from-[#11151b] to-transparent"></div>
+        <div class="fade-bottom pointer-events-none absolute inset-x-3 bottom-3 h-10 bg-gradient-to-t from-[#11151b] to-transparent"></div>
       </div>
     </div>
 

@@ -3,9 +3,12 @@
   import {useMainStore} from "@/stores/main.js";
   import {useContent} from "@/composables/useContent.js";
   import {useI18n} from "vue-i18n";
+  import {storeToRefs} from "pinia";
 
   const {t} = useI18n();
-  const {isActive} = useMainStore();
+  const store = useMainStore();
+  const {isActive} = store;
+  const {activeTheme} = storeToRefs(store);
   const {content} = useContent();
   const selectedProjectId = ref(null);
   const modalPanel = ref(null);
@@ -34,7 +37,24 @@
     },
   };
 
-  const projectTheme = (project) => themeMap[project.theme] ?? themeMap.dashboard;
+  const getProjectThemeSettings = (project) => {
+    const settings = project.cardTheme ?? project.cardThemes ?? project.visual ?? project.appearance ?? {};
+    const dark = settings.dark ?? {};
+    const current = settings[activeTheme.value] ?? {};
+
+    return {dark, current};
+  };
+
+  const getThemeValue = (project, key, legacyValue, lightLegacyValue) => {
+    const {dark, current} = getProjectThemeSettings(project);
+    const legacy = activeTheme.value === "light" && lightLegacyValue !== undefined ? lightLegacyValue : legacyValue;
+
+    return current[key] ?? dark[key] ?? legacy;
+  };
+
+  const projectThemeKey = (project) => getThemeValue(project, "theme", project.theme) ?? "dashboard";
+  const projectTheme = (project) => themeMap[projectThemeKey(project)] ?? themeMap.dashboard;
+
   const selectedProject = computed(() => {
     return content.value.projects.find((project) => project.id === selectedProjectId.value) ?? null;
   });
@@ -53,9 +73,11 @@
     }
   };
 
-  const projectBackgroundStyle = (project) => {
-    const background = project.background;
+  const projectBackground = (project) => {
+    return getThemeValue(project, "background", project.background, project.lightBackground ?? project.backgroundLight);
+  };
 
+  const backgroundToStyle = (background) => {
     if (!background) {
       return {};
     }
@@ -77,19 +99,146 @@
     };
   };
 
+  const projectBackgroundStyle = (project) => backgroundToStyle(projectBackground(project));
+
+  const projectCardStyle = (project) => {
+    const cardBackground = getThemeValue(project, "cardBackground", project.cardBackground, project.lightCardBackground ?? project.cardBackgroundLight);
+    const borderColor = getThemeValue(project, "borderColor", project.borderColor, project.lightBorderColor ?? project.borderColorLight);
+    const color = getThemeValue(project, "textColor", project.textColor, project.lightTextColor ?? project.textColorLight);
+    const style = {};
+
+    if (cardBackground) {
+      style.background = cardBackground;
+    }
+
+    if (borderColor) {
+      style.borderColor = borderColor;
+    }
+
+    if (color) {
+      style.color = color;
+    }
+
+    return style;
+  };
+
+  const projectLogo = (project) => {
+    const {dark, current} = getProjectThemeSettings(project);
+    const baseLogo = project.logo ?? {};
+    const darkLogo = dark.logo ?? {};
+    const currentLogo = current.logo ?? {};
+    const baseThemeLogo = activeTheme.value === "light" ? baseLogo.light ?? {} : baseLogo.dark ?? {};
+    const themeLogoSrc = activeTheme.value === "light"
+        ? baseLogo.lightSrc ?? baseLogo.srcLight
+        : baseLogo.darkSrc ?? baseLogo.srcDark;
+    const src = currentLogo.src
+        ?? baseThemeLogo.src
+        ?? themeLogoSrc
+        ?? darkLogo.src
+        ?? baseLogo.dark?.src
+        ?? baseLogo.darkSrc
+        ?? baseLogo.src;
+    const mergedLogo = {
+      ...baseLogo,
+      ...darkLogo,
+      ...baseThemeLogo,
+      ...currentLogo,
+    };
+
+    return {
+      ...mergedLogo,
+      src,
+      alt: currentLogo.alt ?? baseThemeLogo.alt ?? darkLogo.alt ?? baseLogo.alt ?? project.title,
+      card: {
+        ...(baseLogo.card ?? {}),
+        ...(darkLogo.card ?? {}),
+        ...(baseThemeLogo.card ?? {}),
+        ...(currentLogo.card ?? {}),
+      },
+      modalBackground: {
+        ...(baseLogo.modalBackground ?? {}),
+        ...(darkLogo.modalBackground ?? {}),
+        ...(baseThemeLogo.modalBackground ?? {}),
+        ...(currentLogo.modalBackground ?? {}),
+      },
+    };
+  };
+
   const projectLogoStyle = (project, placement) => {
-    const settings = project.logo?.[placement];
+    const logo = projectLogo(project);
+    const settings = logo?.[placement];
+    const {current} = getProjectThemeSettings(project);
 
     if (!settings) {
       return {};
     }
 
+    const explicitLightSettings = activeTheme.value === "light"
+        ? (current.logo?.[placement] ?? project.logo?.light?.[placement])
+        : null;
+    const explicitLightLogo = activeTheme.value === "light"
+        ? (current.logo ?? project.logo?.light ?? {})
+        : {};
+    const lightDefaultOpacity = placement === "modalBackground" ? "0.30" : "0.52";
+    const opacity = activeTheme.value === "light"
+        ? explicitLightSettings?.opacity
+            ?? explicitLightSettings?.lightOpacity
+            ?? explicitLightSettings?.opacityLight
+            ?? explicitLightLogo.opacity
+            ?? explicitLightLogo.lightOpacity
+            ?? explicitLightLogo.opacityLight
+            ?? settings.lightOpacity
+            ?? settings.opacityLight
+            ?? logo.lightOpacity
+            ?? logo.opacityLight
+            ?? lightDefaultOpacity
+        : settings.opacity;
+
     return {
       height: settings.height,
-      right: settings.right,
-      bottom: settings.bottom,
+      width: settings.width,
+      maxWidth: settings.maxWidth,
+      right: settings.right ?? (settings.left ? "auto" : undefined),
+      left: settings.left,
+      bottom: settings.bottom ?? (settings.top ? "auto" : undefined),
       top: settings.top,
-      opacity: settings.opacity,
+      transform: settings.transform,
+      mixBlendMode: settings.mixBlendMode,
+      filter: settings.filter,
+      objectFit: settings.objectFit,
+      objectPosition: settings.objectPosition,
+      zIndex: settings.zIndex,
+      opacity,
+    };
+  };
+
+  const projectBadge = (project) => {
+    const {dark, current} = getProjectThemeSettings(project);
+    const currentBadge = current.badge ?? {};
+    const darkBadge = dark.badge ?? {};
+    const lightBackground = project.badgeLightColor ?? project.lightBadgeColor;
+    const lightColor = project.badgeLightTextColor ?? project.lightBadgeTextColor;
+    const background = currentBadge.background
+        ?? currentBadge.backgroundColor
+        ?? current.badgeColor
+        ?? (activeTheme.value === "light" ? lightBackground : undefined)
+        ?? darkBadge.background
+        ?? darkBadge.backgroundColor
+        ?? dark.badgeColor
+        ?? project.badgeColor;
+    const color = currentBadge.color
+        ?? currentBadge.textColor
+        ?? current.badgeTextColor
+        ?? (activeTheme.value === "light" ? lightColor : undefined)
+        ?? darkBadge.color
+        ?? darkBadge.textColor
+        ?? dark.badgeTextColor
+        ?? project.badgeTextColor
+        ?? (background ? "#000" : undefined);
+
+    return {
+      className: background ? "" : projectTheme(project).badge,
+      style: background ? {backgroundColor: background, color} : {},
     };
   };
 
@@ -147,26 +296,28 @@
           role="button"
           tabindex="0"
           :aria-label="`${t('projects.openDetails')}: ${project.title}`"
-          class="group relative overflow-hidden rounded-3xl p-4 flex flex-col border min-h-[180px] cursor-pointer text-left shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-cinnabarMain/70 focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
+          :data-project-theme="projectThemeKey(project)"
+          class="project-card group relative overflow-hidden rounded-3xl p-4 flex flex-col border min-h-[180px] cursor-pointer text-left shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-cinnabarMain/70 focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
           :class="projectTheme(project).bg"
+          :style="projectCardStyle(project)"
           @click="openProject(project)"
           @keydown.enter.prevent="openProject(project)"
           @keydown.space.prevent="openProject(project)"
       >
         <div
-            v-if="project.background"
-            class="pointer-events-none absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-90"
+            v-if="projectBackground(project)"
+            class="project-card-backdrop pointer-events-none absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-90"
             :style="projectBackgroundStyle(project)"
         ></div>
         <img
-            v-if="project.logo?.src"
-            :src="project.logo.src"
+            v-if="projectLogo(project)?.src"
+            :src="projectLogo(project).src"
             alt=""
             aria-hidden="true"
-            class="pointer-events-none absolute right-3 bottom-2 h-36 w-auto opacity-30 mix-blend-screen drop-shadow-2xl transition duration-300 group-hover:scale-105 group-hover:opacity-40"
+            class="project-card-logo pointer-events-none absolute right-3 bottom-2 h-36 w-auto opacity-30 mix-blend-screen drop-shadow-2xl transition duration-300 group-hover:scale-105 group-hover:opacity-40"
             :style="projectLogoStyle(project, 'card')"
         >
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-night/10 via-night/25 to-night/75"></div>
+        <div class="project-card-gradient pointer-events-none absolute inset-0 bg-gradient-to-b from-night/10 via-night/25 to-night/75"></div>
 
         <div class="relative z-10 flex h-full flex-col">
           <div class="mb-3 flex items-start justify-between gap-2">
@@ -191,8 +342,8 @@
 
             <span
                 class="px-2 py-1 rounded-full text-[10px] font-semibold shrink-0"
-                :class="!project.badgeColor ? projectTheme(project).badge : ''"
-                :style="project.badgeColor ? { backgroundColor: project.badgeColor, color: '#000' } : {}"
+                :class="projectBadge(project).className"
+                :style="projectBadge(project).style"
             >
               {{ project.badge }}
             </span>
@@ -230,39 +381,39 @@
       >
         <div
             v-if="selectedProject"
-            class="fixed inset-0 z-100 flex items-center justify-center bg-night/80 px-4 py-6 backdrop-blur-md"
+            class="project-modal-overlay fixed inset-0 z-100 flex items-center justify-center bg-night/80 px-4 py-6 backdrop-blur-md"
             @click.self="closeProject"
         >
           <section
               ref="modalPanel"
-              class="relative max-h-[88vh] w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[#0c0f14] shadow-2xl"
+              class="project-modal-panel relative max-h-[88vh] w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[#0c0f14] shadow-2xl"
               role="dialog"
               aria-modal="true"
               :aria-labelledby="`project-modal-title-${selectedProject.id}`"
               tabindex="-1"
           >
             <div
-                v-if="selectedProject.background"
-                class="pointer-events-none absolute inset-x-0 top-0 h-52 opacity-70"
+                v-if="projectBackground(selectedProject)"
+                class="project-modal-backdrop pointer-events-none absolute inset-x-0 top-0 h-52 opacity-70"
                 :style="projectBackgroundStyle(selectedProject)"
             ></div>
             <img
-                v-if="selectedProject.logo?.src"
-                :src="selectedProject.logo.src"
+                v-if="projectLogo(selectedProject)?.src"
+                :src="projectLogo(selectedProject).src"
                 alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute right-4 top-8 h-72 w-auto opacity-16 mix-blend-screen drop-shadow-2xl sm:right-16 sm:h-80"
+                class="project-modal-logo pointer-events-none absolute right-4 top-8 h-72 w-auto opacity-16 mix-blend-screen drop-shadow-2xl sm:right-16 sm:h-80"
                 :style="projectLogoStyle(selectedProject, 'modalBackground')"
             >
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-night/20 via-[#0c0f14]/85 to-[#0c0f14]"></div>
+            <div class="project-modal-gradient pointer-events-none absolute inset-0 bg-gradient-to-b from-night/20 via-[#0c0f14]/85 to-[#0c0f14]"></div>
 
             <div class="relative z-10 max-h-[88vh] overflow-y-auto no-scrollbar p-5 sm:p-6 lg:p-7">
               <div class="mb-6 flex items-start justify-between gap-4">
                 <div class="flex items-start gap-4">
                   <img
-                      v-if="selectedProject.logo?.src"
-                      :src="selectedProject.logo.src"
-                      :alt="selectedProject.logo.alt ?? selectedProject.title"
+                      v-if="projectLogo(selectedProject)?.src"
+                      :src="projectLogo(selectedProject).src"
+                      :alt="projectLogo(selectedProject).alt ?? selectedProject.title"
                       class="mt-1 h-14 w-14 shrink-0 rounded-2xl border border-white/10 bg-white/[0.04] object-contain p-2 shadow-lg shadow-black/20 sm:h-16 sm:w-16"
                   >
                   <div>
@@ -310,7 +461,7 @@
                       <li
                           v-for="item in selectedProject.details.implementation"
                           :key="item"
-                          class="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2 text-sm leading-relaxed text-gray-300"
+                          class="detail-item rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2 text-sm leading-relaxed text-gray-300"
                       >
                         {{ item }}
                       </li>
@@ -327,7 +478,7 @@
                   </div>
                 </div>
 
-                <aside class="lg:sticky lg:top-0 space-y-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+                <aside class="project-modal-aside lg:sticky lg:top-0 space-y-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4">
                   <a
                       v-if="selectedProject.url"
                       :href="selectedProject.url"
@@ -361,4 +512,3 @@
     </Teleport>
   </section>
 </template>
-
