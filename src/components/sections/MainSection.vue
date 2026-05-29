@@ -122,7 +122,7 @@ const projectSkills = computed(() => {
   <section v-show="isActive('home')" class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8">
     <div class="grid grid-cols-1 lg:grid-cols-[1.6fr,1.1fr] gap-6 lg:gap-10">
       <div class="flex flex-col justify-between gap-6">
-        <div>
+        <div data-gsap-reveal>
           <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-gray-500 mb-3">
             {{ t('main.aboutSubTitle') }}
           </p>
@@ -162,7 +162,7 @@ const projectSkills = computed(() => {
 
 
       <div class="flex flex-col gap-4 sm:gap-6">
-        <div class="surface-panel rounded-xl bg-[#11151b] border border-[#252a33] p-4">
+        <div data-gsap-reveal class="surface-panel rounded-xl bg-[#11151b] border border-[#252a33] p-4">
 
           <div class="flex items-center justify-between mb-3">
             <h2 class="text-sm font-semibold"> {{ t('main.stackExperience') }}</h2>
@@ -188,7 +188,7 @@ const projectSkills = computed(() => {
                   {{ skill.label }}
                 </span>
                 <div class="progress-track flex-1 h-2 rounded-full bg-[#1a1f27] overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-cinnabarMain via-palette3 to-palette5"
+                  <div data-gsap-progress class="h-full bg-gradient-to-r from-cinnabarMain via-palette3 to-palette5"
                        :style="{width: skill.width, backgroundImage: 'linear-gradient(to right, #ED5E1F, #5CDB95, #379683)' }"
                   ></div>
                 </div>
@@ -203,7 +203,7 @@ const projectSkills = computed(() => {
     </div>
 
     <div class="mt-4 lg:mt-4">
-      <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
+      <p data-gsap-reveal class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{ t('main.whatIDo') }}
       </p>
       <div class="surface-panel relative rounded-xl border border-[#252a33] bg-[#11151b] p-3">
@@ -211,6 +211,7 @@ const projectSkills = computed(() => {
           <article
               v-for="card in content.homeCards"
               :key="card.title"
+              data-gsap-reveal
               class="surface-card rounded-xl bg-[#15191f] border border-[#262a33] p-3"
           >
           <span class="block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-gray-500 mb-1">

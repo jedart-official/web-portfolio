@@ -138,7 +138,7 @@
   <section v-show="isActive('stack')" class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8 grid grid-cols-1 lg:grid-cols-[1.05fr,1.05fr] gap-6">
 
     <div class="flex flex-col gap-6">
-      <div>
+      <div data-gsap-reveal>
         <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
           {{t('stack.stackSubTitle')}}
         </p>
@@ -151,7 +151,7 @@
       </div>
 
       <div class="space-y-4 text-sm">
-        <div v-for="group in skillGroups" :key="group.id">
+        <div v-for="group in skillGroups" :key="group.id" data-gsap-reveal>
           <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-1">
             {{ group.title }}
           </p>
@@ -180,12 +180,12 @@
 
 
     <div class="flex flex-col">
-      <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
+      <p data-gsap-reveal class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{t('stack.visualSkillMap')}}
       </p>
       <div class="surface-panel relative rounded-xl border border-[#272e3a] bg-[#11151b] p-3">
         <div class="max-h-[390px] space-y-3 overflow-y-auto pr-2 scrollbar-thin">
-          <div :key="item.id" v-for="item in skillStats" class="surface-card rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
+          <div :key="item.id" v-for="item in skillStats" data-gsap-reveal class="surface-card rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
             <div class="mb-2 flex items-center justify-between gap-3">
               <span class="inline-flex items-center gap-2 text-xs font-medium text-gray-300">
                 <span
@@ -206,6 +206,7 @@
             </div>
             <div class="progress-track h-2 overflow-hidden rounded-full bg-[#1a1f27]">
               <div
+                  data-gsap-progress
                   class="h-full rounded-full bg-gradient-to-r from-cinnabarMain via-palette3 to-palette5"
                   :style="{width: `${item.percent}%`, backgroundImage: 'linear-gradient(to right, #ED5E1F, #5CDB95, #379683)' }"
               ></div>

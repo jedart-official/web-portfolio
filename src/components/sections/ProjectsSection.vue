@@ -4,6 +4,7 @@
   import {useContent} from "@/composables/useContent.js";
   import {useI18n} from "vue-i18n";
   import {storeToRefs} from "pinia";
+  import gsap from "gsap";
 
   const {t} = useI18n();
   const store = useMainStore();
@@ -71,6 +72,66 @@
     if (event.key === "Escape") {
       closeProject();
     }
+  };
+
+  const prefersReducedMotion = () => {
+    return typeof window !== "undefined"
+        && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  };
+
+  const modalItems = (el) => gsap.utils.toArray(el.querySelectorAll(".detail-item, .project-modal-aside"));
+
+  const beforeModalEnter = (el) => {
+    if (prefersReducedMotion()) {
+      return;
+    }
+
+    gsap.set(el, {autoAlpha: 0});
+    gsap.set(el.querySelector(".project-modal-panel"), {autoAlpha: 0, y: 24, scale: 0.98});
+    gsap.set(modalItems(el), {autoAlpha: 0, y: 12});
+  };
+
+  const modalEnter = (el, done) => {
+    if (prefersReducedMotion()) {
+      gsap.set(el, {clearProps: "all"});
+      done();
+      return;
+    }
+
+    const timeline = gsap.timeline({
+      defaults: {ease: "power3.out"},
+      onComplete: () => {
+        gsap.set([el, el.querySelector(".project-modal-panel"), ...modalItems(el)], {clearProps: "transform,opacity,visibility"});
+        done();
+      },
+    });
+
+    timeline
+        .to(el, {autoAlpha: 1, duration: 0.16, ease: "power1.out"})
+        .to(el.querySelector(".project-modal-panel"), {autoAlpha: 1, y: 0, scale: 1, duration: 0.42}, 0.02)
+        .to(modalItems(el), {autoAlpha: 1, y: 0, duration: 0.38, stagger: 0.05}, 0.16);
+  };
+
+  const modalLeave = (el, done) => {
+    if (prefersReducedMotion()) {
+      done();
+      return;
+    }
+
+    gsap.to(el.querySelector(".project-modal-panel"), {
+      autoAlpha: 0,
+      y: 14,
+      scale: 0.985,
+      duration: 0.18,
+      ease: "power1.in",
+    });
+
+    gsap.to(el, {
+      autoAlpha: 0,
+      duration: 0.2,
+      ease: "power1.in",
+      onComplete: done,
+    });
   };
 
   const projectBackground = (project) => {
@@ -275,7 +336,7 @@
       v-show="isActive('projects')"
       class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8 flex flex-col"
   >
-    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-5 gap-4 lg:gap-6">
+    <div data-gsap-reveal class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-5 gap-4 lg:gap-6">
       <div>
         <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
           {{t('projects.casesSubTitle')}}
@@ -297,6 +358,7 @@
           tabindex="0"
           :aria-label="`${t('projects.openDetails')}: ${project.title}`"
           :data-project-theme="projectThemeKey(project)"
+          data-gsap-reveal
           class="project-card group relative overflow-hidden rounded-3xl p-4 flex flex-col border min-h-[180px] cursor-pointer text-left shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-cinnabarMain/70 focus:outline-none focus:ring-2 focus:ring-cinnabarMain/60"
           :class="projectTheme(project).bg"
           :style="projectCardStyle(project)"
@@ -372,12 +434,10 @@
 
     <Teleport to="body">
       <Transition
-          enter-active-class="transition duration-200 ease-out"
-          enter-from-class="opacity-0"
-          enter-to-class="opacity-100"
-          leave-active-class="transition duration-150 ease-in"
-          leave-from-class="opacity-100"
-          leave-to-class="opacity-0"
+          :css="false"
+          @before-enter="beforeModalEnter"
+          @enter="modalEnter"
+          @leave="modalLeave"
       >
         <div
             v-if="selectedProject"

@@ -9,6 +9,7 @@ import MainFooter from "@/components/MainFooter.vue";
 import {computed, onMounted} from "vue";
 import {useMainStore} from "@/stores/main.js";
 import {storeToRefs} from "pinia";
+import gsap from "gsap";
 
 
 
@@ -34,6 +35,64 @@ const currentSection = computed(() => {
 
   return map[activeScreen.value] ?? MainSection;
 });
+
+const prefersReducedMotion = () => {
+  return typeof window !== "undefined"
+      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+};
+
+const revealTargets = (el) => gsap.utils.toArray(el.querySelectorAll("[data-gsap-reveal]"));
+const progressTargets = (el) => gsap.utils.toArray(el.querySelectorAll("[data-gsap-progress]"));
+
+const beforeSectionEnter = (el) => {
+  if (prefersReducedMotion()) {
+    return;
+  }
+
+  gsap.set(el, {autoAlpha: 0});
+  gsap.set(revealTargets(el), {autoAlpha: 0, y: 18});
+  gsap.set(progressTargets(el), {scaleX: 0, transformOrigin: "left center"});
+};
+
+const sectionEnter = (el, done) => {
+  const targets = revealTargets(el);
+  const progress = progressTargets(el);
+
+  if (prefersReducedMotion()) {
+    gsap.set([el, ...targets, ...progress], {clearProps: "all"});
+    done();
+    return;
+  }
+
+  const timeline = gsap.timeline({
+    defaults: {ease: "power3.out"},
+    onComplete: () => {
+      gsap.set([el, ...targets, ...progress], {clearProps: "transform,opacity,visibility"});
+      done();
+    },
+  });
+
+  timeline
+      .to(el, {autoAlpha: 1, duration: 0.16, ease: "power1.out"})
+      .to(targets, {autoAlpha: 1, y: 0, duration: 0.56, stagger: 0.055}, 0.04)
+      .to(progress, {scaleX: 1, duration: 0.7, stagger: 0.035, ease: "power2.out"}, 0.16);
+};
+
+const sectionLeave = (el, done) => {
+  if (prefersReducedMotion()) {
+    done();
+    return;
+  }
+
+  gsap.set(el, {display: ""});
+  gsap.to(el, {
+    autoAlpha: 0,
+    y: -8,
+    duration: 0.18,
+    ease: "power1.in",
+    onComplete: done,
+  });
+};
 
 onMounted(() => {
   onScroll();
@@ -65,12 +124,11 @@ onMounted(() => {
 
             <Transition
                 mode="out-in"
-                enter-active-class="transition-opacity duration-300 ease-out"
-                enter-from-class="opacity-0"
-                enter-to-class="opacity-100"
-                leave-active-class="transition-opacity duration-200 ease-in"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
+                appear
+                :css="false"
+                @before-enter="beforeSectionEnter"
+                @enter="sectionEnter"
+                @leave="sectionLeave"
             >
               <component :is="currentSection" :key="activeScreen" />
             </Transition>

@@ -24,7 +24,7 @@ const jobLogo = (job) => {
     v-show="isActive('career')"
     class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8 flex flex-col"
   >
-    <div class="mb-6">
+    <div data-gsap-reveal class="mb-6">
       <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{ t('career.careerSubTitle') }}
       </p>
@@ -41,6 +41,7 @@ const jobLogo = (job) => {
         <div
           v-for="(job, index) in content.career"
           :key="index"
+          data-gsap-reveal
           class="relative pl-10 sm:pl-20 group"
         >
           <div class="career-timeline-dot absolute left-[13px] top-2 h-2.5 w-2.5 rounded-full border-2 border-cinnabarMain bg-night z-10 sm:left-[29px] group-hover:scale-125 transition-transform"></div>
