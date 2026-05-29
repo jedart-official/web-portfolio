@@ -13,6 +13,9 @@
   const {content} = useContent();
   const selectedProjectId = ref(null);
   const modalPanel = ref(null);
+  const projectGrid = ref(null);
+  const allProjectsCategory = "all";
+  const activeProjectCategory = ref(allProjectsCategory);
 
   const themeMap = {
     dashboard: {
@@ -59,6 +62,24 @@
   const selectedProject = computed(() => {
     return content.value.projects.find((project) => project.id === selectedProjectId.value) ?? null;
   });
+
+  const projectCategories = computed(() => {
+    return [...new Set(content.value.projects.flatMap((project) => project.categories ?? []))];
+  });
+
+  const filteredProjects = computed(() => {
+    if (activeProjectCategory.value === allProjectsCategory) {
+      return content.value.projects;
+    }
+
+    return content.value.projects.filter((project) => {
+      return project.categories?.includes(activeProjectCategory.value);
+    });
+  });
+
+  const setProjectCategory = (category) => {
+    activeProjectCategory.value = category;
+  };
 
   const openProject = (project) => {
     selectedProjectId.value = project.id;
@@ -132,6 +153,18 @@
       ease: "power1.in",
       onComplete: done,
     });
+  };
+
+  const animateProjectCards = () => {
+    if (prefersReducedMotion() || !projectGrid.value) {
+      return;
+    }
+
+    gsap.fromTo(
+        projectGrid.value.querySelectorAll(".project-card"),
+        {autoAlpha: 0, y: 14, scale: 0.985},
+        {autoAlpha: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.045, ease: "power3.out"}
+    );
   };
 
   const projectBackground = (project) => {
@@ -320,6 +353,17 @@
     }
   });
 
+  watch(projectCategories, (categories) => {
+    if (activeProjectCategory.value !== allProjectsCategory && !categories.includes(activeProjectCategory.value)) {
+      activeProjectCategory.value = allProjectsCategory;
+    }
+  });
+
+  watch(activeProjectCategory, async () => {
+    await nextTick();
+    animateProjectCards();
+  });
+
   onBeforeUnmount(() => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = "";
@@ -350,9 +394,44 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
+    <div data-gsap-reveal class="mb-4 flex min-w-0 flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div
+          class="control-pill grid w-full min-w-0 grid-cols-2 gap-1.5 rounded-2xl border border-white/10 bg-[#15191f] p-1.5 sm:flex sm:flex-wrap md:flex-1"
+          role="tablist"
+          :aria-label="t('projects.filterLabel')"
+      >
+        <button
+            type="button"
+            role="tab"
+            :aria-selected="activeProjectCategory === allProjectsCategory"
+            @click="setProjectCategory(allProjectsCategory)"
+            class="min-w-0 rounded-full px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
+            :class="activeProjectCategory === allProjectsCategory ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'"
+        >
+          {{ t('projects.filterAll') }}
+        </button>
+        <button
+            v-for="category in projectCategories"
+            :key="category"
+            type="button"
+            role="tab"
+            :aria-selected="activeProjectCategory === category"
+            @click="setProjectCategory(category)"
+            class="min-w-0 rounded-full px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
+            :class="activeProjectCategory === category ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'"
+        >
+          {{ category }}
+        </button>
+      </div>
+
+      <span class="shrink-0 text-[10px] uppercase tracking-[0.22em] text-gray-500 md:text-right">
+        {{ t('projects.filteredCount', {count: filteredProjects.length}) }}
+      </span>
+    </div>
+
+    <div ref="projectGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
       <article
-          v-for="project in content.projects"
+          v-for="project in filteredProjects"
           :key="project.id"
           role="button"
           tabindex="0"
