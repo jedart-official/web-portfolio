@@ -37,6 +37,17 @@
       "data": "Data",
       "tools": "Tools",
       "integrations": "Integrations"
+    },
+    "integrations": {
+      "subtitle": "Integrations",
+      "title": "I connect services that move leads, payments, and data.",
+      "description": "This usually goes beyond API clients: webhooks, callbacks, status sync, logging, and fitting the flow into an existing CMS or CRM.",
+      "items": {
+        "amocrm": "Sending leads and orders into pipelines, creating deals, and syncing fields and order contents.",
+        "kaspi": "Payment and commerce flows: checkout, status checks, and linking orders with payments.",
+        "freedom": "Payment flow integration, callback processing, result verification, and error logging.",
+        "tarlanPayments": "Online payments, transaction status handling, protected callback logic, and issue diagnostics."
+      }
     }
   },
   "projects": {

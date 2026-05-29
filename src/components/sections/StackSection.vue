@@ -3,9 +3,12 @@
   import {useMainStore} from "@/stores/main.js";
   import {useContent} from "@/composables/useContent.js";
   import {useI18n} from "vue-i18n";
+  import {storeToRefs} from "pinia";
 
   const {t} = useI18n();
-  const {isActive} = useMainStore();
+  const store = useMainStore();
+  const {isActive} = store;
+  const {activeTheme} = storeToRefs(store);
   const {content} = useContent();
 
   const skillMeta = {
@@ -31,7 +34,7 @@
     amocrm: {label: "AmoCRM", group: "integrations", icon: "A", iconBg: "#00a4ff", iconColor: "#ffffff"},
   };
 
-  const groupOrder = ["backend", "frontend", "data", "tools", "integrations"];
+  const groupOrder = ["backend", "frontend", "data", "tools"];
   const staticStackSkills = {
     data: [
       {id: "postgresql-static", label: "PostgreSQL", icon: "PG", iconBg: "#336791", iconColor: "#ffffff", deviconClass: "devicon-postgresql-plain colored"},
@@ -39,12 +42,66 @@
     tools: [
       {id: "github-static", label: "GitHub", icon: "GH", iconBg: "#f0f6fc", iconColor: "#050608", deviconClass: "devicon-github-original"},
     ],
-    integrations: [
-      {id: "bitrix24-static", label: "Bitrix24", icon: "B24", iconBg: "#2fc6f6", iconColor: "#050608"},
-      {id: "freedom-static", label: "Freedom", icon: "F", iconBg: "#00a651", iconColor: "#ffffff"},
-      {id: "kaspi-static", label: "Kaspi", icon: "K", iconBg: "#e30613", iconColor: "#ffffff"},
-      {id: "tarlan-payments-static", label: "Tarlan Payments", icon: "TP", iconBg: "#111827", iconColor: "#ffffff"},
-    ],
+  };
+
+  const integrationItems = computed(() => [
+    {
+      id: "amocrm",
+      title: "AmoCRM",
+      icon: "A",
+      iconBg: "#00a4ff",
+      iconColor: "#ffffff",
+      logo: {
+        src: "/logos/integrations/amocrm.svg",
+        backgroundColor: "#00a4ff",
+      },
+      description: t("stack.integrations.items.amocrm"),
+    },
+    {
+      id: "kaspi",
+      title: "Kaspi",
+      icon: "K",
+      iconBg: "#e30613",
+      iconColor: "#ffffff",
+      logo: {
+        src: "/logos/integrations/kaspi.svg",
+      },
+      description: t("stack.integrations.items.kaspi"),
+    },
+    {
+      id: "freedom",
+      title: "Freedom",
+      icon: "F",
+      iconBg: "#00a651",
+      iconColor: "#ffffff",
+      logo: {
+        dark: "/logos/integrations/freedom-dark.svg",
+        light: "/logos/integrations/freedom-light.svg",
+      },
+      description: t("stack.integrations.items.freedom"),
+    },
+    {
+      id: "tarlan-payments",
+      title: "Tarlan Payments",
+      icon: "TP",
+      iconBg: "#111827",
+      iconColor: "#ffffff",
+      logo: {
+        src: "/logos/integrations/tarlan.svg",
+        backgroundColor: "#ffffff",
+      },
+      description: t("stack.integrations.items.tarlanPayments"),
+    },
+  ]);
+
+  const integrationLogoSrc = (item) => {
+    if (!item.logo) {
+      return null;
+    }
+
+    return activeTheme.value === "light"
+        ? item.logo.light ?? item.logo.src
+        : item.logo.dark ?? item.logo.src;
   };
 
   const skillPriority = [
@@ -175,6 +232,55 @@
         </div>
 
 
+      </div>
+
+      <div data-gsap-reveal class="surface-panel rounded-xl border border-[#272e3a] bg-[#11151b] p-4">
+        <div class="mb-4">
+          <p class="mb-2 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500">
+            {{ t("stack.integrations.subtitle") }}
+          </p>
+          <h3 class="mb-2 text-lg font-semibold text-gray-100">
+            {{ t("stack.integrations.title") }}
+          </h3>
+          <p class="text-xs leading-relaxed text-gray-400">
+            {{ t("stack.integrations.description") }}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <article
+              v-for="item in integrationItems"
+              :key="item.id"
+              class="surface-card rounded-xl border border-[#27303b] bg-[#151a21] p-3"
+          >
+            <div class="mb-2 flex items-center gap-2">
+              <span
+                  v-if="!integrationLogoSrc(item)"
+                  class="grid h-8 min-w-8 place-items-center rounded-lg px-1 text-[9px] font-semibold leading-none"
+                  :style="{backgroundColor: item.iconBg, color: item.iconColor}"
+              >
+                {{ item.icon }}
+              </span>
+              <span
+                  v-else
+                  class="grid h-8 min-w-10 place-items-center rounded-lg border border-white/10 bg-white/[0.04] px-2"
+                  :style="{backgroundColor: item.logo.backgroundColor}"
+              >
+                <img
+                    :src="integrationLogoSrc(item)"
+                    :alt="item.title"
+                    class="block h-auto max-h-6 max-w-[5.75rem] object-contain"
+                >
+              </span>
+              <h4 class="text-xs font-semibold text-gray-100">
+                {{ item.title }}
+              </h4>
+            </div>
+            <p class="text-[11px] leading-relaxed text-gray-400">
+              {{ item.description }}
+            </p>
+          </article>
+        </div>
       </div>
     </div>
 
