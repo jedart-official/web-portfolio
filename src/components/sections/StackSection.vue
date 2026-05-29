@@ -192,7 +192,7 @@
 </script>
 
 <template>
-  <section v-show="isActive('stack')" class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8 grid grid-cols-1 lg:grid-cols-[1.05fr,1.05fr] gap-6">
+  <section v-show="isActive('stack')" class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8 grid grid-cols-1 items-stretch lg:grid-cols-[1.05fr,1.05fr] gap-6">
 
     <div class="flex flex-col gap-6">
       <div data-gsap-reveal>
@@ -285,12 +285,14 @@
     </div>
 
 
-    <div class="flex flex-col">
+    <div class="flex min-h-0 flex-col lg:sticky lg:top-6 lg:self-start">
       <p data-gsap-reveal class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-gray-500 mb-3">
         {{t('stack.visualSkillMap')}}
       </p>
-      <div class="surface-panel relative rounded-xl border border-[#272e3a] bg-[#11151b] p-3">
-        <div class="max-h-[983px] space-y-3 overflow-y-auto pr-2 scrollbar-thin">
+      <div
+          class="surface-panel relative flex max-h-[420px] min-h-0 flex-col rounded-xl border border-[#272e3a] bg-[#11151b] p-3 lg:h-[430px] lg:max-h-[calc(100vh-8rem)] lg:overflow-hidden xl:h-[460px]"
+      >
+        <div class="min-h-0 flex-1 space-y-3 overflow-y-auto pr-2 scrollbar-thin">
           <div :key="item.id" v-for="item in skillStats" data-gsap-reveal class="surface-card rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
             <div class="mb-2 flex items-center justify-between gap-3">
               <span class="inline-flex items-center gap-2 text-xs font-medium text-gray-300">

@@ -127,7 +127,7 @@ const projectSkills = computed(() => {
 
 <template>
   <section v-show="isActive('home')" class="screen relative h-full px-5 sm:px-6 lg:px-10 py-6 lg:py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[1.6fr,1.1fr] gap-6 lg:gap-10">
+    <div class="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1.6fr,1.1fr] lg:gap-10">
       <div class="flex flex-col justify-between gap-6">
         <div data-gsap-reveal>
           <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-gray-500 mb-3">
@@ -189,16 +189,16 @@ const projectSkills = computed(() => {
       </div>
 
 
-      <div class="flex flex-col gap-4 sm:gap-6">
-        <div data-gsap-reveal class="surface-panel rounded-xl bg-[#11151b] border border-[#252a33] p-4">
+      <div class="flex min-h-0 flex-col gap-4 sm:gap-6 lg:sticky lg:top-6 lg:self-start">
+        <div data-gsap-reveal class="surface-panel flex min-h-0 flex-col rounded-xl bg-[#11151b] border border-[#252a33] p-4 lg:h-[420px] lg:max-h-[calc(100vh-8rem)] xl:h-[450px]">
 
           <div class="flex items-center justify-between mb-3">
             <h2 class="text-sm font-semibold"> {{ t('main.stackExperience') }}</h2>
             <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-gray-500">{{ t('main.overview') }}</span>
           </div>
 
-          <div class="relative">
-            <div class="max-h-120 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-[580px]">
+          <div class="relative min-h-0 flex-1">
+            <div class="h-full max-h-80 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin lg:max-h-none">
               <div v-for="skill in projectSkills" :key="skill.id" class="flex items-center gap-3">
                 <span class="flex w-24 items-center gap-2 text-gray-400">
                   <span
