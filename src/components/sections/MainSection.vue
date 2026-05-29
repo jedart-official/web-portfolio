@@ -181,7 +181,7 @@ const projectSkills = computed(() => {
             </button>
             <button
                 @click="setScreen('stack')"
-                class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-transparent text-sm text-gray-300 hover:text-palette2 hover:border-palette2/60 transition">
+                class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-transparent text-sm text-gray-300 transition hover:border-cinnabarMain/50 hover:bg-cinnabarMain/10 hover:text-cinnabarMain hover:shadow-[0_10px_24px_rgba(237,94,31,0.12)]">
               {{ t('main.checkStack') }}
             </button>
           </div>

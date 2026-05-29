@@ -405,8 +405,8 @@
             role="tab"
             :aria-selected="activeProjectCategory === allProjectsCategory"
             @click="setProjectCategory(allProjectsCategory)"
-            class="min-w-0 rounded-full px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
-            :class="activeProjectCategory === allProjectsCategory ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'"
+            class="min-w-0 rounded-full border px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
+            :class="activeProjectCategory === allProjectsCategory ? 'border-cinnabarMain/35 bg-cinnabarMain/15 text-cinnabarMain shadow-sm' : 'border-transparent text-gray-400 hover:border-cinnabarMain/40 hover:bg-cinnabarMain/10 hover:text-cinnabarMain'"
         >
           {{ t('projects.filterAll') }}
         </button>
@@ -417,8 +417,8 @@
             role="tab"
             :aria-selected="activeProjectCategory === category"
             @click="setProjectCategory(category)"
-            class="min-w-0 rounded-full px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
-            :class="activeProjectCategory === category ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'"
+            class="min-w-0 rounded-full border px-2.5 py-2 text-center text-[9px] font-medium uppercase leading-tight tracking-[0.08em] transition sm:w-auto sm:shrink-0 sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]"
+            :class="activeProjectCategory === category ? 'border-cinnabarMain/35 bg-cinnabarMain/15 text-cinnabarMain shadow-sm' : 'border-transparent text-gray-400 hover:border-cinnabarMain/40 hover:bg-cinnabarMain/10 hover:text-cinnabarMain'"
         >
           {{ category }}
         </button>
