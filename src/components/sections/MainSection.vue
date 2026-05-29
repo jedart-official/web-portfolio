@@ -9,6 +9,13 @@ const {t} = useI18n();
 const {isActive, setScreen} = useMainStore();
 const {content} = useContent();
 
+const positioningItems = computed(() => [
+  t("main.positioning.items.crm"),
+  t("main.positioning.items.integrations"),
+  t("main.positioning.items.admin"),
+  t("main.positioning.items.automation"),
+]);
+
 const skillLabelMap = {
   php: "PHP",
   yii2: "Yii2",
@@ -133,6 +140,27 @@ const projectSkills = computed(() => {
             {{ t('main.aboutDescription') }}
           </p>
 
+          <div class="surface-panel mt-5 max-w-xl rounded-xl border border-[#252a33] bg-[#11151b] p-4">
+            <p class="mb-2 text-[10px] uppercase tracking-[0.24em] text-gray-500">
+              {{ t("main.positioning.subtitle") }}
+            </p>
+            <h2 class="mb-2 text-base font-semibold leading-snug text-gray-100 sm:text-lg">
+              {{ t("main.positioning.title") }}
+            </h2>
+            <p class="mb-3 text-xs leading-relaxed text-gray-400">
+              {{ t("main.positioning.description") }}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                  v-for="item in positioningItems"
+                  :key="item"
+                  class="skill-chip rounded-full border border-[#27303b] bg-[#151a21] px-3 py-1 text-[11px] text-gray-300"
+              >
+                {{ item }}
+              </span>
+            </div>
+          </div>
+
           <div class="mt-5 sm:mt-6 flex flex-wrap gap-3">
             <a href="/resume.pdf"
                download
@@ -170,7 +198,7 @@ const projectSkills = computed(() => {
           </div>
 
           <div class="relative">
-            <div class="max-h-120 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-64">
+            <div class="max-h-120 space-y-3 overflow-y-auto pr-2 text-[11px] scrollbar-thin sm:max-h-[580px]">
               <div v-for="skill in projectSkills" :key="skill.id" class="flex items-center gap-3">
                 <span class="flex w-24 items-center gap-2 text-gray-400">
                   <span

@@ -290,7 +290,7 @@
         {{t('stack.visualSkillMap')}}
       </p>
       <div class="surface-panel relative rounded-xl border border-[#272e3a] bg-[#11151b] p-3">
-        <div class="max-h-[390px] space-y-3 overflow-y-auto pr-2 scrollbar-thin">
+        <div class="max-h-[983px] space-y-3 overflow-y-auto pr-2 scrollbar-thin">
           <div :key="item.id" v-for="item in skillStats" data-gsap-reveal class="surface-card rounded-xl bg-[#171c23] border border-[#272e3a] p-3">
             <div class="mb-2 flex items-center justify-between gap-3">
               <span class="inline-flex items-center gap-2 text-xs font-medium text-gray-300">

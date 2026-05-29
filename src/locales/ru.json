@@ -20,6 +20,17 @@
     "downloadCV": "Скачать резюме PDF",
     "viewProjects": "Смотреть проекты",
     "checkStack": "Изучить стек",
+    "positioning": {
+      "subtitle": "Что я делаю",
+      "title": "Backend / Fullstack developer для CRM, интеграций, API и админок.",
+      "description": "Помогаю автоматизировать бизнес-процессы: от заявок и заказов до оплат, личных кабинетов и внутренних панелей управления.",
+      "items": {
+        "crm": "CRM и заявки",
+        "integrations": "Интеграции и webhooks",
+        "admin": "Админки и CMS",
+        "automation": "Автоматизация процессов"
+      }
+    },
     "stackExperience": "Опыт в стеке",
     "overview": "Overview",
     "whatIDo": "Чем занимаюсь",

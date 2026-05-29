@@ -20,6 +20,17 @@
     "downloadCV": "Download resume PDF",
     "viewProjects": "View projects",
     "checkStack": "Explore stack",
+    "positioning": {
+      "subtitle": "What I do",
+      "title": "Backend / Fullstack developer for CRM, integrations, APIs, and admin panels.",
+      "description": "I help automate business processes: from leads and orders to payments, personal accounts, and internal management panels.",
+      "items": {
+        "crm": "CRM and leads",
+        "integrations": "Integrations and webhooks",
+        "admin": "Admin panels and CMS",
+        "automation": "Process automation"
+      }
+    },
     "stackExperience": "Stack experience",
     "overview": "Overview",
     "whatIDo": "What I do",
